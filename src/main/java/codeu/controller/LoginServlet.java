@@ -72,7 +72,7 @@ public class LoginServlet extends HttpServlet {
       request.getRequestDispatcher("/WEB-INF/view/login.jsp").forward(request, response);
       return;
     }
-// TODO: add password
+// TODO: add password 
     if (!userStore.isUserRegistered(username)) {
       User user = new User(UUID.randomUUID(), username, null, Instant.now());
       userStore.addUser(user);

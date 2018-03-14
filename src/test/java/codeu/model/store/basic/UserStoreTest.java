@@ -16,7 +16,7 @@ public class UserStoreTest {
   private UserStore userStore;
   private PersistentStorageAgent mockPersistentStorageAgent;
 
-  private final User USER_ONE =
+  private final User USER_ONE = 
       new User(UUID.randomUUID(), "test_username_one", "password one", Instant.ofEpochMilli(1000));
   private final User USER_TWO =
       new User(UUID.randomUUID(), "test_username_two", "password two", Instant.ofEpochMilli(2000));
