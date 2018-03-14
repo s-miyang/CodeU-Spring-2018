@@ -64,6 +64,19 @@
         This page should also be used to describe the features and improvements
         you've added.
       </p>
+      <h1>Our Team</h>
+      <p>
+        Our team consists of four college students and a Project Advisor, Vikas Mahajan.
+        Vikas Mahajan works at Google as a Program Manager and drives 150 miles every day
+        in an electric car. Emily Zhu is a sophomore at UC Berkeley studying computer science.
+        Emily is also a competitive chess player. Michelle Yang is a sophomore at the University 
+        of Washington studying computer science. Michelle really likes MacGyver. Adelaide Punt
+        is a sophomore at Harvey Mudd College majoring in computer science and mathematics. Adelaide 
+        is also a contemporary and ballet dancer. Last but not least, we have Paolo Takagi-Atilano,
+        a junior at Dartmouth College majoring in computer science. Paolo is also on the varsity
+        cross-conutry ski team. 
+      </p>
+      
     </div>
   </div>
 </body>
