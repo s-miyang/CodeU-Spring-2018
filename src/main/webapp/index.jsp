@@ -36,9 +36,8 @@
   <div id="container">
     <div
       style="width:75%; margin-left:auto; margin-right:auto; margin-top: 50px;">
-
-      <h1>CodeU Chat App: Team ToadBlue</h1>
-      <h2>Welcome!</h2>
+      <h1>CodeU Chat App</h1>
+      <h2>Welcome Everyone!</h2>
 
       <ul>
         <li><a href="/login">Login</a> to get started.</li>
