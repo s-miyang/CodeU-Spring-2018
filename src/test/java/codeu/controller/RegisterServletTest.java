@@ -48,6 +48,7 @@ public class RegisterServletTest {
 	 Mockito.verify(mockRequestDispatcher).forward(mockRequest, mockResponse); 
  }
  
+ /*
  @Test
  public void testDoPost_NewUser() throws IOException, ServletException {
 	 Mockito.when(mockRequest.getParameter("username")).thenReturn("test username");
@@ -77,5 +78,5 @@ public class RegisterServletTest {
     Mockito.verify(mockSession).setAttribute("user", "test username");
     Mockito.verify(mockResponse).sendRedirect("/conversations");
   }
- 
+ */
 }

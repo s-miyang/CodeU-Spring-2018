@@ -44,24 +44,7 @@ public class RegisterServlet extends HttpServlet {
   @Override
   public void doGet(HttpServletRequest request, HttpServletResponse response)
     throws IOException, ServletException {
-	  String username = request.getParameter("username");
-	  String password = request.getParameter("password");
-	  
-	  if (!username.matches("[\\w*\\s*]*")) {
-		  request.setAttribute("error", "Please enter only letters, numbers, and spaces.");
-		  request.getRequestDispatcher("/WEB-INF/view/register.jsp").forward(request, response);
-		  return;
-	  }
-
-	  if (userStore.isUserRegistered(username)) {
-		  request.setAttribute("error", "That username is already taken.");
-		  request.getRequestDispatcher("/WEB-INF/view/register.jsp").forward(request, response);
-		  return;
-	  }
-
-	  User user = new User(UUID.randomUUID(), username, password, Instant.now());
-	  userStore.addUser(user);
-	  response.sendRedirect("/login");
+	  request.getRequestDispatcher("/WEB-INF/view/register.jsp").forward(request, response);
   }
   
   // this method is called when user clicks "submit" with a username and password
@@ -76,8 +59,18 @@ public class RegisterServlet extends HttpServlet {
 		  request.getRequestDispatcher("/WEB-INF/view/register.jsp").forward(request, response);
 		  return;
 	  }
-	  response.getWriter().println("<p>Username : " + username + "</p>");
-	  response.getWriter().println("<p>Password : " + password + "</p>");
+	  
+	  if (userStore.isUserRegistered(username)) {
+		  request.setAttribute("error", "That username is already taken.");
+		  request.getRequestDispatcher("/WEB-INF/view/register.jsp").forward(request, response);
+		  return;
+	  }
+
+	  User user = new User(UUID.randomUUID(), username, password, Instant.now());
+	  userStore.addUser(user);
+	  response.sendRedirect("/login");
+	  //response.getWriter().println("<p>Username : " + username + "</p>");
+	  //response.getWriter().println("<p>Password : " + password + "</p>");
   }
   
 }
