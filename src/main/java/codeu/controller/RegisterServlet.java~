@@ -16,6 +16,7 @@ public class RegisterServlet extends HttpServlet {
 
     request.getRequestDispatcher("/WEB-INF/view/register.jsp").forward(request, response);
   }
+<<<<<<< HEAD
   
   @Override
   public void doPost(HttpServletRequest request, HttpServletResponse response) 
@@ -33,3 +34,6 @@ public class RegisterServlet extends HttpServlet {
 	 
   }
 }
+=======
+}
+>>>>>>> 55c081825b7db73563af5ccf563265ad88248c02
