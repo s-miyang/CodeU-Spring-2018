@@ -32,4 +32,7 @@ public class RegisterServletTest {
 
    Mockito.verify(mockRequestDispatcher).forward(mockRequest, mockResponse);
  }
+ 
+ //@Test
+ //public void test
 }
