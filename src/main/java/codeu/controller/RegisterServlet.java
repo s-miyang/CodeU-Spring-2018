@@ -52,7 +52,7 @@ public class RegisterServlet extends HttpServlet {
 		  request.getRequestDispatcher("/WEB-INF/view/register.jsp").forward(request, response);
 		  return;
 	  }
-	  
+
 	  if (userStore.isUserRegistered(username)) {
 		  request.setAttribute("error", "That username is already taken.");
 		  request.getRequestDispatcher("/WEB-INF/view/register.jsp").forward(request, response);
@@ -64,6 +64,7 @@ public class RegisterServlet extends HttpServlet {
 	  response.sendRedirect("/login");
   }
   
+  // this method is called when user clicks "submit" with a username and password
   @Override
   public void doPost(HttpServletRequest request, HttpServletResponse response) 
 		  	throws IOException, ServletException {
