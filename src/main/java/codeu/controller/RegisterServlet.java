@@ -12,6 +12,8 @@ import javax.servlet.http.HttpServletResponse;
 import codeu.model.data.User;
 import codeu.model.store.basic.UserStore;
 
+import org.mindrot.jbcrypt.*;
+
 /**
   * Servlet class responsible for user registration.
   */

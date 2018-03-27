@@ -13,6 +13,8 @@ import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
 
+import org.mindrot.jbcrypt.*;
+
 /**
  * Test class for PersistentDataStore. The PersistentDataStore class relies on DatastoreService,
  * which in turn relies on being deployed in an AppEngine context. Since this test doesn't run in
@@ -41,14 +43,16 @@ public class PersistentDataStoreTest {
     UUID idOne = UUID.randomUUID();
     String nameOne = "test_username_one";
     String passOne = "password one";
+    String passHashOne = BCrypt.hashpw(passOne, BCrypt.gensalt());
     Instant creationOne = Instant.ofEpochMilli(1000);
-    User inputUserOne = new User(idOne, nameOne, passOne, creationOne);
+    User inputUserOne = new User(idOne, nameOne, passHashOne, creationOne);
 
     UUID idTwo = UUID.randomUUID();
     String nameTwo = "test_username_two";
     String passTwo = "password two";
+    String passHashTwo = BCrypt.hashpw(passTwo, BCrypt.gensalt());
     Instant creationTwo = Instant.ofEpochMilli(2000);
-    User inputUserTwo = new User(idTwo, nameTwo, passTwo, creationTwo);
+    User inputUserTwo = new User(idTwo, nameTwo, passHashTwo, creationTwo);
 
     // save
     persistentDataStore.writeThrough(inputUserOne);
@@ -61,13 +65,13 @@ public class PersistentDataStoreTest {
     User resultUserOne = resultUsers.get(0);
     Assert.assertEquals(idOne, resultUserOne.getId());
     Assert.assertEquals(nameOne, resultUserOne.getName());
-    Assert.assertEquals(passOne, resultUserOne.getPassword());
+    Assert.assertEquals(passHashOne, resultUserOne.getPassword());
     Assert.assertEquals(creationOne, resultUserOne.getCreationTime());
 
     User resultUserTwo = resultUsers.get(1);
     Assert.assertEquals(idTwo, resultUserTwo.getId());
     Assert.assertEquals(nameTwo, resultUserTwo.getName());
-    Assert.assertEquals(passTwo, resultUserTwo.getPassword());
+    Assert.assertEquals(passHashTwo, resultUserTwo.getPassword());
     Assert.assertEquals(creationTwo, resultUserTwo.getCreationTime());
   }
 

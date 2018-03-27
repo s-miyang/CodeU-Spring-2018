@@ -11,17 +11,19 @@ import org.junit.Before;
 import org.junit.Test;
 import org.mockito.Mockito;
 
+import org.mindrot.jbcrypt.*;
+
 public class UserStoreTest {
 
   private UserStore userStore;
   private PersistentStorageAgent mockPersistentStorageAgent;
 
   private final User USER_ONE = 
-      new User(UUID.randomUUID(), "test_username_one", "password one", Instant.ofEpochMilli(1000));
+      new User(UUID.randomUUID(), "test_username_one", BCrypt.hashpw("password one", BCrypt.gensalt()), Instant.ofEpochMilli(1000));
   private final User USER_TWO =
-      new User(UUID.randomUUID(), "test_username_two", "password two", Instant.ofEpochMilli(2000));
+      new User(UUID.randomUUID(), "test_username_two", BCrypt.hashpw("password two", BCrypt.gensalt()), Instant.ofEpochMilli(2000));
   private final User USER_THREE =
-      new User(UUID.randomUUID(), "test_username_three", "password three", Instant.ofEpochMilli(3000));
+      new User(UUID.randomUUID(), "test_username_three", BCrypt.hashpw("password three", BCrypt.gensalt()), Instant.ofEpochMilli(3000));
 
   @Before
   public void setup() {
@@ -65,7 +67,7 @@ public class UserStoreTest {
 
   @Test
   public void testAddUser() {
-    User inputUser = new User(UUID.randomUUID(), "test_username", "password test", Instant.now());
+    User inputUser = new User(UUID.randomUUID(), "test_username", BCrypt.hashpw("password test", BCrypt.gensalt()), Instant.now());
 
     userStore.addUser(inputUser);
     User resultUser = userStore.getUser("test_username");
