@@ -12,6 +12,8 @@ import javax.servlet.http.HttpServletResponse;
 import codeu.model.data.User;
 import codeu.model.store.basic.UserStore;
 
+import org.mindrot.jbcrypt.*;
+
 /**
   * Servlet class responsible for user registration.
   */
@@ -53,6 +55,7 @@ public class RegisterServlet extends HttpServlet {
 		  	throws IOException, ServletException {
 	  String username = request.getParameter("username");
 	  String password = request.getParameter("password");
+	  String passwordHash = BCrypt.hashpw(password, BCrypt.gensalt());
 	  
 	  if (!username.matches("[\\w*\\s*]*")) {
 		  request.setAttribute("error", "Please enter only letters, numbers, and spaces.");
@@ -66,7 +69,7 @@ public class RegisterServlet extends HttpServlet {
 		  return;
 	  }
 
-	  User user = new User(UUID.randomUUID(), username, password, Instant.now());
+	  User user = new User(UUID.randomUUID(), username, passwordHash, Instant.now());
 	  userStore.addUser(user);
 	  response.sendRedirect("/login");
 	  //response.getWriter().println("<p>Username : " + username + "</p>");

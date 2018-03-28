@@ -9,6 +9,8 @@ import org.junit.Before;
 import org.junit.Test;
 import org.mockito.Mockito;
 
+import org.mindrot.jbcrypt.*;
+
 /**
  * Contains tests of the PersistentStorageAgent class. Currently that class is just a pass-through
  * to PersistentDataStore, so these tests are pretty trivial. If you modify how
@@ -44,9 +46,9 @@ public class PersistentStorageAgentTest {
     Mockito.verify(mockPersistentDataStore).loadMessages();
   }
 
-  @Test
+  @Test 
   public void testWriteThroughUser() { 
-    User user = new User(UUID.randomUUID(), "test_username","password", Instant.now());
+    User user = new User(UUID.randomUUID(), "test_username", BCrypt.hashpw("password", BCrypt.gensalt()), Instant.now());
     persistentStorageAgent.writeThrough(user);
     Mockito.verify(mockPersistentDataStore).writeThrough(user);
   }
