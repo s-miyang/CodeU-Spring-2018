@@ -20,6 +20,7 @@ import codeu.model.data.User;
 import codeu.model.store.basic.ConversationStore;
 import codeu.model.store.basic.MessageStore;
 import codeu.model.store.basic.UserStore;
+import com.vdurmont.emoji.EmojiParser;
 import java.io.IOException;
 import java.time.Instant;
 import java.util.List;
@@ -142,13 +143,14 @@ public class ChatServlet extends HttpServlet {
 
     // this removes any HTML from the message content
     String cleanedMessageContent = Jsoup.clean(messageContent, Whitelist.none());
+    String emojiedMessage = EmojiParser.parseToHtmlHexadecimal(EmojiParser.parseToUnicode(parsedMessageContent));
 
     Message message =
         new Message(
             UUID.randomUUID(),
             conversation.getId(),
             user.getId(),
-            cleanedMessageContent,
+            emojiedMessage;
             Instant.now());
 
     messageStore.addMessage(message);
