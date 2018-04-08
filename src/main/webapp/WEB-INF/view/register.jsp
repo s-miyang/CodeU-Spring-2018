@@ -22,6 +22,8 @@
            <a href="/login">Login</a>
            <a href="/register">Register</a>
          <% } %>
+         <a href="/about.jsp">About (do we want this here?)</a>
+         <a href="/profile.jsp">HERE'S YOUR PROFILE PAGE</a>
       </nav>
 
       <div id="container">

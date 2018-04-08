@@ -49,6 +49,8 @@
         <li>You can <a href="/testdata">load test data</a> to fill the site with
             example data.</li>
       </ul>
+      
+      <h2>NOTE: you will only see a valid profile.jsp if you're logged in.</h2>
     </div>
   </div>
 </body>
