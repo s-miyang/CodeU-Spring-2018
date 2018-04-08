@@ -19,6 +19,8 @@ import java.util.UUID;
 import org.junit.Assert;
 import org.junit.Test;
 
+import org.mindrot.jbcrypt.*;
+
 public class UserTest {
 
   @Test
@@ -26,13 +28,14 @@ public class UserTest {
     UUID id = UUID.randomUUID();
     String name = "test_username";
     String password = "password";
+    String passwordHash = BCrypt.hashpw("password", BCrypt.gensalt());
     Instant creation = Instant.now();
 
-    User user = new User(id, name, password, creation);
+    User user = new User(id, name, passwordHash, creation);
 
     Assert.assertEquals(id, user.getId());
     Assert.assertEquals(name, user.getName());
-    Assert.assertEquals(password, user.getPassword());
+    Assert.assertEquals(passwordHash, user.getPassword());
     Assert.assertEquals(creation, user.getCreationTime());
   }
 }

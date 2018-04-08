@@ -38,7 +38,7 @@
     <div
       style="width:75%; margin-left:auto; margin-right:auto; margin-top: 50px;">
 
-      <h1>About the CodeU Chat App</h1>
+      <h1>[Insert Name of Messaging App] User Manual</h1>
       <p>
         This is an example chat application designed to be a starting point
         for your CodeU project team work. Here's some stuff to think about:
@@ -66,19 +66,66 @@
         This page should also be used to describe the features and improvements
         you've added.
       </p>
-      <h1>Our Team</h>
+      <h1>Our Team</h1>
       <p>
-        Our team consists of four college students and a Project Advisor, Vikas Mahajan.
-        Vikas Mahajan works at Google as a Program Manager and drives 150 miles every day
-        in an electric car. Emily Zhu is a sophomore at UC Berkeley studying computer science.
-        Emily is also a competitive chess player. Michelle Yang is a sophomore at the University 
-        of Washington studying computer science. Michelle really likes MacGyver. Adelaide Punt
-        is a sophomore at Harvey Mudd College majoring in computer science and mathematics. Adelaide 
-        is also a contemporary and ballet dancer. Last but not least, we have Paolo Takagi-Atilano,
-        a junior at Dartmouth College majoring in computer science. Paolo is also on the varsity
-        cross-conutry ski team. 
+        Hi there! We're Team ToadBlue.
+
+        <br></br>
+        <h3>Meet the Team:</h3>
+        <br></br>
+        <b>Vikas Mahajan</b>
+        <br></br>
+        Role: Project Advisor
+        <br></br>
+        About: Vikas currently works at Google as a Program Manager.
+        <br></br>
+        Fun Fact: Vikas drives 150 miles every day in an electric car.
+
+        <br></br>
+        <br></br>
+
+        <b>Emily Zhu</b>
+        <br></br>
+        Role: Programmer
+        <br></br>
+        About: Emily is currently a sophomore at UC Berkeley studying computer science.
+        <br></br>
+        Fun Fact: Emily used to play competitive chess.
+
+        <br></br>
+        <br></br>
+
+        <b>Michelle Yang</b>
+        <br></br>
+        Role: Programmer
+        <br></br>
+        About: Michelle is a sophomore at the University of Washington studying computer science.
+        <br></br>
+        Fun Fact: Michelle really likes MacGyver.
+
+        <br></br>
+        <br></br>
+
+        <b>Adelaide Punt</b>
+        <br></br>
+        Role: Programmer
+        <br></br>
+        About: Adelaide is a sophomore at Harvey Mudd College majoring in computer science and mathematics.
+        <br></br>
+        Fun Fact: Adelaide is a contemporary and ballet dancer.
+
+        <br></br>
+        <br></br>
+
+        <b>Paolo Takagi-Atilano</b>
+        <br></br>
+        Role: Programmer
+        <br></br>
+        About: Paolo is a junior at Dartmouth College majoring in computer science.
+        <br></br>
+        Fun Fact: Paolo is on the varsity cross-conutry ski team.
       </p>
-      
+
     </div>
   </div>
 </body>
