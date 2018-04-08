@@ -47,6 +47,7 @@ See User.java for all the methods to call -Michelle
       <a href="/register">Register</a>
     <% } %>
     <a href="/about.jsp">About</a>
+    <a href="/profile.jsp">HERE'S YOUR PROFILE PAGE</a>
   </nav>
 
 
@@ -58,10 +59,10 @@ See User.java for all the methods to call -Michelle
    <% } %>
 
    <form action="/login" method="POST">
-     <label for="username">Username: </label>
+     <label for="username">NotUsername: </label>
      <input type="text" name="username" id="username">
      <br/>
-     <label for="password">Password: </label>
+     <label for="password">NotPassword: </label>
      <input type="password" name="password" id="password">
      <br/><br/>
      <button type="submit">Login</button>
