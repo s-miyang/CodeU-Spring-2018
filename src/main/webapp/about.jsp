@@ -69,7 +69,8 @@
       <p>
         Hi there! We're Team ToadBlue.
 
-        Meet the Team:
+        <br></br>
+        <h3>Meet the Team:</h3>
         <br></br>
         <b>Vikas Mahajan</b>
         <br></br>
