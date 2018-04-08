@@ -69,7 +69,8 @@
       <p>
         Hi there! We're Team ToadBlue.
 
-        Meet the Team:
+        <br></br>
+        <h3>Meet the Team:</h3>
         <br></br>
         <b>Vikas Mahajan</b>
         <br></br>
@@ -94,6 +95,7 @@
         <br></br>
 
         <b>Michelle Yang</b>
+        <br></br>
         Role: Programmer
         <br></br>
         About: Michelle is a sophomore at the University of Washington studying computer science.
