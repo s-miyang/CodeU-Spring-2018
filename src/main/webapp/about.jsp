@@ -94,6 +94,7 @@
         <br></br>
 
         <b>Michelle Yang</b>
+        <br></br>
         Role: Programmer
         <br></br>
         About: Michelle is a sophomore at the University of Washington studying computer science.
