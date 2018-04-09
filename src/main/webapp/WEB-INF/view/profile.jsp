@@ -36,8 +36,12 @@ See User.java for all the methods to call -Michelle
 </head>
 <body>
 
+   <h1>Profile</h1>
+   <p>Our JSP is working!</p>
 
-  <nav>
+
+
+  <%-- <nav>
     <a id="navTitle" href="/">CodeU Chat App</a>
     <a href="/conversations">Conversations</a>
     <% if(request.getSession().getAttribute("user") != null){ %>
@@ -48,7 +52,7 @@ See User.java for all the methods to call -Michelle
     <% } %>
     <a href="/about.jsp">About</a>
     <a href="/profile.jsp">My Profile-P</a>
-  </nav>
+  </nav> --%>
 
 
  <%-- <div id="container">
