@@ -36,9 +36,9 @@
       <a href="/login">Login</a>
       <a href="/register">Register</a>
     <% } %>
-    <a href="/conversations">Conversations</a>
+    <%-- <a href="/conversations">Conversations</a> --%>
     <a href="/about.jsp">About</a>
-    <a href="/users">My Profile</a>
+    <%-- <a href="/users">My Profile</a> --%>
   </nav>
 
 
