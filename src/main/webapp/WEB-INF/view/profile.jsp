@@ -87,6 +87,15 @@ List<Message> messages = (List<Message>) request.getAttribute("messages");
    <hr>
    <h4><%= request.getSession().getAttribute("user") %>'s Sent Messages</h4>
 
+
+   <form action="/users/<%=request.getSession().getAttribute("user")%>" method="link">
+     <button type="submit">Log Out</button>
+     <%
+        session.invalidate();
+        response.sendRedirect("/login");
+     %>
+   </form>
+
    <%-- <div id="chat">
      <ul>
      for (Message message : messages) {
