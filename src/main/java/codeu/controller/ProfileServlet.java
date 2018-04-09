@@ -82,6 +82,7 @@ public class ProfileServlet extends HttpServlet {
       about_text = request.getParameter("about_text");
     }
     user.setBio(about_text);
+    persistentStorageAgent.writeThrough(user);
 		response.sendRedirect("/users/" + user.getName());
   }
 }
