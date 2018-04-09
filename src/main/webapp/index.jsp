@@ -23,13 +23,13 @@
 
   <nav>
     <a id="navTitle" href="/">CodeU Chat App</a>
-    <a href="/conversations">Conversations</a>
     <% if(request.getSession().getAttribute("user") != null){ %>
       <a>Hello <%= request.getSession().getAttribute("user") %>!</a>
     <% } else{ %>
       <a href="/login">Login</a>
       <a href="/register">Register</a>
     <% } %>
+    <%-- <a href="/conversations">Conversations</a> --%>
     <a href="/about.jsp">About</a>
     <a href="/testdata">Load Test Data</a>
   </nav>
@@ -49,7 +49,7 @@
         <li>You can <a href="/testdata">load test data</a> to fill the site with
             example data.</li>
       </ul>
-      
+
       <h2>NOTE: you will only see a valid profile.jsp if you're logged in.</h2>
     </div>
   </div>
