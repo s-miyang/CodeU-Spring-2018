@@ -57,6 +57,7 @@ See User.java for all the methods to call -Michelle
       <a href="/login">Login</a>
       <a href="/register">Register</a>
     <% } %>
+    <a href="/about.jsp">About</a>
     <%-- <a href="/conversations">Conversations</a>
     <a href="/about.jsp">About</a>
     <a href="/users/<%=request.getSession().getAttribute("user")%>">My Profile</a> --%>
