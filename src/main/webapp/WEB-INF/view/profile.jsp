@@ -27,7 +27,6 @@ See User.java for all the methods to call -Michelle
 <%@ page import="codeu.model.data.Message" %>
 <%@ page import="codeu.model.store.basic.UserStore" %>
 <%
-Conversation conversation = (Conversation) request.getAttribute("conversation");
 List<Message> messages = (List<Message>) request.getAttribute("messages");
 %>
 
@@ -91,11 +90,9 @@ List<Message> messages = (List<Message>) request.getAttribute("messages");
      <ul>
    <%
      for (Message message : messages) {
-       String author = UserStore.getInstance()
-         .getUser(message.getAuthorId()).getName();
-   %>
-     <li><strong><%= message.getCreationTime() %>:</strong> <%= message.getContent() %></li>
-   <%
+       %>
+         <li><strong><%= message.getCreationTime() %>:</strong> <%= message.getContent() %></li>
+       <%
      }
    %>
      </ul>
