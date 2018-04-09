@@ -64,3 +64,4 @@ public class LogoutServlet extends HttpServlet {
     }
     request.getRequestDispatcher("/login.jsp").forward(request,response);
   }
+}
