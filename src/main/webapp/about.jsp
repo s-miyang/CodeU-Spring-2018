@@ -31,7 +31,7 @@
     <% } %>
     <a href="/conversations">Conversations</a>
     <a href="/about.jsp">About</a>
-    <a href="/users">My Profile</a>
+    <a href="/users/<%=request.getSession().getAttribute("user")%>">My Profile</a>
   </nav>
 
   <div id="container">
