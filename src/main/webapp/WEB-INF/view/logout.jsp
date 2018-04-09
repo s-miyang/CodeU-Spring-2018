@@ -22,14 +22,6 @@ See User.java for all the methods to call -Michelle
 
 --%>
 
-<%@ page import="java.util.List" %>
-<%@ page import="codeu.model.data.Conversation" %>
-<%@ page import="codeu.model.data.Message" %>
-<%@ page import="codeu.model.store.basic.UserStore" %>
-<%
-List<Message> messages = (List<Message>) request.getAttribute("messages");
-%>
-
 <!DOCTYPE html>
 <html>
 <head>
@@ -65,43 +57,10 @@ List<Message> messages = (List<Message>) request.getAttribute("messages");
       <a href="/login">Login</a>
       <a href="/register">Register</a>
     <% } %>
-    <a href="/conversations">Conversations</a>
+    <%-- <a href="/conversations">Conversations</a>
     <a href="/about.jsp">About</a>
-    <a href="/users/<%=request.getSession().getAttribute("user")%>">My Profile</a>
+    <a href="/users/<%=request.getSession().getAttribute("user")%>">My Profile</a> --%>
   </nav>
 
- <div id="container">
-   <h1><%= request.getSession().getAttribute("user") %>'s Profile Page</h1>
-   <hr>
-
-   </br>
-   <form action="/users/<%=request.getSession().getAttribute("user")%>" id="about_form" method="POST">
-     <h5>Edit your profile:</h5>
-     <input type="text" autocomplete="off" name="about_text" id="about_text"></input>
-     <button type="submit">Submit</button>
-   </form>
-
-   <%-- <input type="submit"></input> --%>
-   <h4>About <%= request.getSession().getAttribute("user") %></h4>
-   <p> <%= UserStore.getInstance().getUser((String) request.getSession().getAttribute("user")).getBio() %></p>
-   <hr>
-   <h4><%= request.getSession().getAttribute("user") %>'s Sent Messages</h4>
-
-
-   <form action="/logout" method="POST">
-     <button type="submit">Log Out</button>
-   </form>
-
-   <%-- <div id="chat">
-     <ul>
-     for (Message message : messages) {
-         <li><strong> <%= message.getCreationTime() %>:</strong> <%= message.getContent() %> </li>
-     }
-     </ul>
-   </div> --%>
-
-   <hr/>
-
- </div>
 </body>
 </html>
