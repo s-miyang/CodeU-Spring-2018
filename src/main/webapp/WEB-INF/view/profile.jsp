@@ -41,7 +41,7 @@ See User.java for all the methods to call -Michelle
   </script>
 
   <style type="text/css">
-  #about_form:focus
+  input:focus
   {
     outline:none;
   }
