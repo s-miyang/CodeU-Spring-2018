@@ -88,7 +88,7 @@ List<Message> messages = (List<Message>) request.getAttribute("messages");
    <h4><%= request.getSession().getAttribute("user") %>'s Sent Messages</h4>
 
 
-   <form action="/login" method="link">
+   <form action="/index" method="link">
      <button type="submit">Log Out</button>
    </form>
 
