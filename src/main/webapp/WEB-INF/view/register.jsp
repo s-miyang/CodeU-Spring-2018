@@ -23,7 +23,7 @@
            <a href="/register">Register</a>
          <% } %>
          <%-- <a href="/about.jsp">About-R</a>
-         <a href="/profile.jsp">My Profile-R</a> --%>
+         <a href="/users">My Profile-R</a> --%>
       </nav>
 
       <div id="container">

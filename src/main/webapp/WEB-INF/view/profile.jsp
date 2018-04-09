@@ -41,7 +41,7 @@ See User.java for all the methods to call -Michelle
 
 
 
-  <%-- <nav>
+  <nav>
     <a id="navTitle" href="/">CodeU Chat App</a>
     <a href="/conversations">Conversations</a>
     <% if(request.getSession().getAttribute("user") != null){ %>
@@ -51,8 +51,8 @@ See User.java for all the methods to call -Michelle
       <a href="/register">Register</a>
     <% } %>
     <a href="/about.jsp">About</a>
-    <a href="/profile.jsp">My Profile-P</a>
-  </nav> --%>
+    <a href="/users">My Profile-P</a>
+  </nav>
 
 
  <%-- <div id="container">
