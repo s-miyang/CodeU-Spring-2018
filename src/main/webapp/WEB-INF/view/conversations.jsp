@@ -21,6 +21,13 @@
 <head>
   <title>Conversations</title>
   <link rel="stylesheet" href="/css/main.css">
+
+  <style type="text/css">
+  input:focus
+  {
+    outline:none;
+  }
+  </style>
 </head>
 <body>
 
