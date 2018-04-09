@@ -45,7 +45,7 @@ public class User {
     this.creation = creation;
 
     //added for profile
-    this.bio = "";
+    this.bio = "Hello! My name is " + this.name + ".";
     this.pic = null;
     this.school = "";
     this.gradYear = 0;
