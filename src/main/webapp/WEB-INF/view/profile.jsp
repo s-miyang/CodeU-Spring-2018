@@ -22,6 +22,15 @@ See User.java for all the methods to call -Michelle
 
 --%>
 
+<%@ page import="java.util.List" %>
+<%@ page import="codeu.model.data.Conversation" %>
+<%@ page import="codeu.model.data.Message" %>
+<%@ page import="codeu.model.store.basic.UserStore" %>
+<%
+Conversation conversation = (Conversation) request.getAttribute("conversation");
+List<Message> messages = (List<Message>) request.getAttribute("messages");
+%>
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -76,7 +85,24 @@ See User.java for all the methods to call -Michelle
    <h4>About <%= request.getSession().getAttribute("user") %></h4>
    <p><span id="display"></span></p>
    <hr>
-   <h4><%= request.getSession().getAttribute("user") %>'s sent messages</h4>
+   <h4><%= request.getSession().getAttribute("user") %>'s Sent Messages</h4>
+
+   <div id="chat">
+     <ul>
+   <%
+     for (Message message : messages) {
+       String author = UserStore.getInstance()
+         .getUser(message.getAuthorId()).getName();
+   %>
+     <li><strong><%= message.getCreationTime() %>:</strong> <%= message.getContent() %></li>
+   <%
+     }
+   %>
+     </ul>
+   </div>
+
+   <hr/>
+
  </div>
 </body>
 </html>
