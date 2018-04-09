@@ -53,14 +53,15 @@ See User.java for all the methods to call -Michelle
    <h1><%= request.getSession().getAttribute("user") %>'s Profile Page</h1>
    <hr>
 
-   <h4>About <%= request.getSession().getAttribute("user") %></h4>
-   <output name="result">Hi</output>
    </br>
    <form action="/users/<%=request.getSession().getAttribute("user")%>" oninput="result.value=about_text" id="about_form" method="POST">
      <input type="text" name="about_text"/>
      </br>
      <button type="submit">Submit</button>
    </form>
+
+   <h4>About <%= request.getSession().getAttribute("user") %></h4>
+   <output name="result">Hi</output>
    <hr>
    <h4><%= request.getSession().getAttribute("user") %>'s sent messages</h4>
  </div>
