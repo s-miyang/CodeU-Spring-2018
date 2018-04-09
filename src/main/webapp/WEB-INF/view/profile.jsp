@@ -36,11 +36,6 @@ See User.java for all the methods to call -Michelle
 </head>
 <body>
 
-   <h1>Profile</h1>
-   <p>Our JSP is working!</p>
-
-
-
   <nav>
     <a id="navTitle" href="/">CodeU Chat App</a>
     <a href="/conversations">Conversations</a>
@@ -51,7 +46,7 @@ See User.java for all the methods to call -Michelle
       <a href="/register">Register</a>
     <% } %>
     <a href="/about.jsp">About</a>
-    <a href="/users">My Profile-P</a>
+    <a href="/users">My Profile</a>
   </nav>
 
 

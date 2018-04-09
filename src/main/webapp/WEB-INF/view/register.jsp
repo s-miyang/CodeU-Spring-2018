@@ -22,8 +22,8 @@
            <a href="/login">Login</a>
            <a href="/register">Register</a>
          <% } %>
-         <%-- <a href="/about.jsp">About-R</a>
-         <a href="/users">My Profile-R</a> --%>
+         <a href="/about.jsp">About</a>
+         <%-- <a href="/users">My Profile</a> --%>
       </nav>
 
       <div id="container">
