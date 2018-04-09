@@ -55,9 +55,10 @@ See User.java for all the methods to call -Michelle
    <hr>
 
    <h4>About <%= request.getSession().getAttribute("user") %></h4>
-   <br></br>
+   </br>
    <form action="/users/<%= request.getSession().getAttribute("user") %>" method="POST">
      <textarea name="about_text" cols="45" rows="5"></textarea>
+     </br>
      <button type="submit">Submit</button>
    </form>
    <h4><%= request.getSession().getAttribute("user") %>'s sent messages</h4>
