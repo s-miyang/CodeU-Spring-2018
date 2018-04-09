@@ -83,7 +83,7 @@ List<Message> messages = (List<Message>) request.getAttribute("messages");
 
    <%-- <input type="submit"></input> --%>
    <h4>About <%= request.getSession().getAttribute("user") %></h4>
-   <p> <%= request.getSession().getAttribute("user").getBio() %></p>
+   <p> <%= UserStore.getInstance().getUser(request.getSession().getAttribute("user")).getBio() %></p>
    <hr>
    <h4><%= request.getSession().getAttribute("user") %>'s Sent Messages</h4>
 
