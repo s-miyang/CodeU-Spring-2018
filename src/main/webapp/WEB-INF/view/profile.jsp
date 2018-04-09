@@ -33,6 +33,13 @@ See User.java for all the methods to call -Michelle
      width: 100px;
    }
  </style>
+
+ <script language="JavaScript">
+    function showInput() {
+        document.getElementById("display").innerHTML =
+                    document.getElementById("about_form").value;
+    }
+  </script>
 </head>
 <body>
 
@@ -54,14 +61,14 @@ See User.java for all the methods to call -Michelle
    <hr>
 
    </br>
-   <form action="/users/<%=request.getSession().getAttribute("user")%>" oninput="result.value=about_text" id="about_form" method="POST">
+   <form action="/users/<%=request.getSession().getAttribute("user")%>" id="about_form" method="POST">
      <input type="text" name="about_text"/>
      </br>
-     <button type="submit">Submit</button>
+     <input type="submit" onclick="showInput();">Submit</input>
    </form>
 
    <h4>About <%= request.getSession().getAttribute("user") %></h4>
-   <output name="result">Hi</output>
+   <p><span id="display"></span></p>
    <hr>
    <h4><%= request.getSession().getAttribute("user") %>'s sent messages</h4>
  </div>
