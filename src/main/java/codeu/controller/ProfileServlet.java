@@ -59,6 +59,10 @@ public class ProfileServlet extends HttpServlet {
   public void doGet(HttpServletRequest request, HttpServletResponse response)
       throws IOException, ServletException {
     request.getRequestDispatcher("/WEB-INF/view/profile.jsp").forward(request, response);
+    String username = (String) request.getSession().getAttribute("user");
+    User user = userStore.getUser(username);
+    String aboutMe = user.getBio();
+    request.setAttribute("about_text", aboutMe);
   }
 
   @Override
