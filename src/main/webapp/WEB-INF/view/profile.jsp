@@ -62,12 +62,11 @@ See User.java for all the methods to call -Michelle
    </br>
    <form action="/users/<%=request.getSession().getAttribute("user")%>" id="about_form" method="POST">
      <input type="text" id="about_text"></input>
-     </br>
-     <input type="submit" onclick="showInput();"></input>
    </form>
 
+   <input type="submit" onclick="showInput();"></input>
    <h4>About <%= request.getSession().getAttribute("user") %></h4>
-   <p id="display"></p>
+   <p><span id="display"></span></p>
    <hr>
    <h4><%= request.getSession().getAttribute("user") %>'s sent messages</h4>
  </div>
