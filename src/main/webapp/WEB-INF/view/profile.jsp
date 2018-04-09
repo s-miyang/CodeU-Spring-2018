@@ -50,8 +50,8 @@ See User.java for all the methods to call -Michelle
   </nav>
 
 
- <%-- <div id="container">
-   <h1>Login</h1>
+ <div id="container">
+   <h1><% request.getSession().getAttribute("user") %>'s Profile Page</h1>
 
    <% if(request.getAttribute("error") != null){ %>
        <h2 style="color:red"><%= request.getAttribute("error") %></h2>
@@ -66,6 +66,6 @@ See User.java for all the methods to call -Michelle
      <br/><br/>
      <button type="submit">Login</button>
    </form>
- </div> --%>
+ </div>
 </body>
 </html>
