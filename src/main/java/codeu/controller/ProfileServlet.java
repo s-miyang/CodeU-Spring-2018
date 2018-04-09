@@ -65,6 +65,7 @@ public class ProfileServlet extends HttpServlet {
   public void doPost(HttpServletRequest request, HttpServletResponse response)
 		  	throws IOException, ServletException {
 
+    String about = request.getParameter("about_text");
     String username = (String) request.getSession().getAttribute("user");
     if (username == null) {
       // user is not logged in, don't let them create a conversation
@@ -72,6 +73,7 @@ public class ProfileServlet extends HttpServlet {
       return;
     }
     User user = userStore.getUser(username);
+    user.setBio(about);
 		response.sendRedirect("/users/" + user.getName());
 	  //response.getWriter().println("<p>Username : " + username + "</p>");
 	  //response.getWriter().println("<p>Password : " + password + "</p>");
