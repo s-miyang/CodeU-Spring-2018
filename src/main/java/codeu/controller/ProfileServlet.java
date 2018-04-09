@@ -52,24 +52,23 @@ public class ProfileServlet extends HttpServlet {
   }
 
   /**
-   * This function fires when a user requests the /login URL. It simply forwards the request to
-   * login.jsp.
+   * This function fires when a user requests the /users URL. It simply forwards the request to
+   * profile.jsp.
    */
   @Override
   public void doGet(HttpServletRequest request, HttpServletResponse response)
       throws IOException, ServletException {
     request.getRequestDispatcher("/WEB-INF/view/profile.jsp").forward(request, response);
-    String username = (String) request.getSession().getAttribute("user");
-    User user = userStore.getUser(username);
-    String aboutMe = user.getBio();
-    request.setAttribute("about_text", aboutMe);
+    // String username = (String) request.getSession().getAttribute("user");
+    // User user = userStore.getUser(username);
+    // String aboutMe = user.getBio();
+    // request.setAttribute("about_text", aboutMe);
   }
 
   @Override
   public void doPost(HttpServletRequest request, HttpServletResponse response)
 		  	throws IOException, ServletException {
 
-    String about = request.getParameter("about_text");
     String username = (String) request.getSession().getAttribute("user");
     if (username == null) {
       // user is not logged in, don't let them create a conversation
@@ -77,9 +76,12 @@ public class ProfileServlet extends HttpServlet {
       return;
     }
     User user = userStore.getUser(username);
-    user.setBio(about);
+
+    String about_text = user.getBio();
+    if (request.getParameter("about_text") != null) {
+      about_text = request.getParameter("about_text");
+    }
+    user.setBio(about_text);
 		response.sendRedirect("/users/" + user.getName());
-	  //response.getWriter().println("<p>Username : " + username + "</p>");
-	  //response.getWriter().println("<p>Password : " + password + "</p>");
   }
 }
