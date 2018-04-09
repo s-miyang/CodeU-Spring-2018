@@ -155,5 +155,6 @@ public class ChatServlet extends HttpServlet {
 
     // redirect to a GET request
     response.sendRedirect("/chat/" + conversationTitle);
+    response.sendRedirect("/users/" + user.getName());
   }
 }
