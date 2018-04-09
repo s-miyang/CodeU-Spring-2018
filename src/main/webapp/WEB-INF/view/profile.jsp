@@ -54,10 +54,10 @@ See User.java for all the methods to call -Michelle
    <hr>
 
    <h4>About <%= request.getSession().getAttribute("user") %></h4>
-   <output name="result"></output>
+   <output name="result">Hi</output>
    </br>
    <form action="/users/<%=request.getSession().getAttribute("user")%>" oninput="result.value=about_text" id="about_form" method="POST">
-     <textarea name="about_text" cols="120" rows="5"></textarea>
+     <input name="about_text" cols="120" rows="5"></input>
      </br>
      <button type="submit">Submit</button>
    </form>
