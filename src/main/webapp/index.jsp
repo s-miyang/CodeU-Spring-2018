@@ -31,7 +31,7 @@
     <% } %>
     <%-- <a href="/conversations">Conversations</a> --%>
     <a href="/about.jsp">About</a>
-    <a href="/testdata">Load Test Data</a>
+    <%-- <a href="/testdata">Load Test Data</a> --%>
   </nav>
 
   <div id="container">
