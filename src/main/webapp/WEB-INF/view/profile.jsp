@@ -44,7 +44,7 @@ List<Message> messages = (List<Message>) request.getAttribute("messages");
 
  <script language="JavaScript">
     function showInput() {
-        document.getElementById("display").innerHTML = document.getElementById("about_text").value;
+        request.getSession().getAttribute("user").setBio(document.getElementById("about_text").value);
     }
   </script>
 
@@ -75,12 +75,12 @@ List<Message> messages = (List<Message>) request.getAttribute("messages");
    <hr>
 
    </br>
-   <form action="/users/<%=request.getSession().getAttribute("user")%>" onsubmit="showInput();" id="about_form" method="POST">
+   <form action="/users/<%=request.getSession().getAttribute("user")%>" id="about_form" method="POST">
      <h5>Edit your profile:</h5>
      <input type="text" autocomplete="off" id="about_text"></input>
    </form>
 
-   <input type="submit"></input>
+   <input type="submit" onsubmit="showInput();"></input>
    <h4>About <%= request.getSession().getAttribute("user") %></h4>
    <p><span id="display"></span></p>
    <hr>
