@@ -56,6 +56,7 @@ List<Message> messages = (List<Message>) request.getAttribute("messages");
       <a href="/register">Register</a>
     <% } %>
     <a href="/about.jsp">About</a>
+    <a href="/profile.jsp">My Profile-C</a>
   </nav>
 
   <div id="container">
