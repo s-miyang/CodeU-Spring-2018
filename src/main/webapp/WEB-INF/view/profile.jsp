@@ -78,11 +78,12 @@ List<Message> messages = (List<Message>) request.getAttribute("messages");
    <form action="/users/<%=request.getSession().getAttribute("user")%>" id="about_form" method="POST">
      <h5>Edit your profile:</h5>
      <input type="text" autocomplete="off" name="about_text" id="about_text"></input>
+     <button type="submit">Submit</button>
    </form>
 
-   <input type="submit"></input>
+   <%-- <input type="submit"></input> --%>
    <h4>About <%= request.getSession().getAttribute("user") %></h4>
-   <p><span id="display"></span></p>
+   <%-- <p><span id="display"></span></p> --%>
    <hr>
    <h4><%= request.getSession().getAttribute("user") %>'s Sent Messages</h4>
 
