@@ -79,12 +79,13 @@ public class User {
    * @returns boolean of whether it was successful
    * 	true = success, false = failure
    * */
-  public boolean setBio(String s) {
-	  if (s.length() <= 180) {
-		  this.bio = s;
-		  return true;
-	  }
-	  return false;
+  public void setBio(String s) {
+	  // if (s.length() <= 180) {
+		//   this.bio = s;
+		//   return true;
+	  // }
+	  // return false;
+    this.bio = s;
   }
 
   /* returns the bio associated with the user*/

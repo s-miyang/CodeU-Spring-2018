@@ -77,10 +77,7 @@ public class ProfileServlet extends HttpServlet {
     }
     User user = userStore.getUser(username);
 
-    String about_text = user.getBio();
-    if (request.getParameter("about_text") != null) {
-      about_text = request.getParameter("about_text");
-    }
+    String about_text = (String) request.getParameter("about_text");
     user.setBio(about_text);
     userStore.editUser(user);
 		response.sendRedirect("/users/" + user.getName());

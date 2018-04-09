@@ -104,7 +104,7 @@ public class UserStore {
     persistentStorageAgent.writeThrough(user);
   }
 
-  /** Add a new user to the current set of users known to the application. */
+  /** Edits a user already in the current set of users known to the application. */
   public void editUser(User user) {
     persistentStorageAgent.writeThrough(user);
   }
