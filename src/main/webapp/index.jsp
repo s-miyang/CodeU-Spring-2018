@@ -42,7 +42,7 @@
 
       <ul>
         <li>If you do not have an account, please first<a href="/register">register</a> to get started.</li>
-        <li>Otherwise, please <a href="/login">login</a></li>
+        <li>Otherwise, go ahead and <a href="/login">login</a></li>
         <li>Once logged in, go to the <a href="/conversations">conversations</a> page to
             create or join a conversation.</li>
         <li>View the <a href="/about.jsp">about</a> page to learn more about the
