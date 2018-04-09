@@ -16,6 +16,7 @@ package codeu.controller;
 
 import codeu.model.data.User;
 import codeu.model.store.basic.UserStore;
+import codeu.model.store.persistence.PersistentStorageAgent;
 import java.io.IOException;
 import java.time.Instant;
 import java.util.UUID;
@@ -32,6 +33,8 @@ public class ProfileServlet extends HttpServlet {
 
   /** Store class that gives access to Users. */
   private UserStore userStore;
+
+  private PersistentStorageAgent persistentStorageAgent;
 
   /**
    * Set up state for handling login-related requests. This method is only called when running in a
