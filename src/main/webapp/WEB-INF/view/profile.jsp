@@ -47,7 +47,7 @@ See User.java for all the methods to call -Michelle
       <a href="/register">Register</a>
     <% } %>
     <a href="/about.jsp">About</a>
-    <a href="/profile.jsp">My Profile</a>
+    <a href="/profile.jsp">My Profile-P</a>
   </nav>
 
 

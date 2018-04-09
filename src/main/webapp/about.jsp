@@ -31,7 +31,7 @@
       <a href="/register">Register</a>
     <% } %>
     <a href="/about.jsp">About</a>
-    <a href="/profile.jsp">HERE'S YOUR PROFILE PAGE</a>
+    <a href="/profile.jsp">My Profile-A</a>
   </nav>
 
   <div id="container">

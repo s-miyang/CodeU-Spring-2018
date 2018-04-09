@@ -22,13 +22,13 @@
            <a href="/login">Login</a>
            <a href="/register">Register</a>
          <% } %>
-         <a href="/about.jsp">About (do we want this here?)</a>
-         <a href="/profile.jsp">HERE'S YOUR PROFILE PAGE</a>
+         <a href="/about.jsp">About-R</a>
+         <a href="/profile.jsp">My Profile-R</a>
       </nav>
 
       <div id="container">
          <h1>Register</h1>
-         
+
          <% if(request.getAttribute("error") != null){ %>
          	<h2 style="color:red"><%= request.getAttribute("error") %></h2>
          <% } %>
