@@ -58,6 +58,8 @@ public class ProfileServlet extends HttpServlet {
   @Override
   public void doGet(HttpServletRequest request, HttpServletResponse response)
       throws IOException, ServletException {
-    request.getRequestDispatcher("/WEB-INF/view/profile.jsp").forward(request, response);
+    response.getWriter().println("<h1>RegisterServlet GET request.</h1>");
+
+    // request.getRequestDispatcher("/WEB-INF/view/profile.jsp").forward(request, response);
   }
 }
