@@ -39,6 +39,13 @@ See User.java for all the methods to call -Michelle
         document.getElementById("display").innerHTML = document.getElementById("about_text").value;
     }
   </script>
+
+  <style type="text/css">
+  #about_form:focus
+  {
+    outline:none;
+  }
+  </style>
 </head>
 <body>
 
@@ -61,7 +68,7 @@ See User.java for all the methods to call -Michelle
 
    </br>
    <form action="/users/<%=request.getSession().getAttribute("user")%>" id="about_form" method="POST">
-     <input type="text" id="about_text"></input>
+     <input type="text" autocomplete="off" id="about_text"></input>
    </form>
 
    <input type="submit" onclick="showInput();"></input>
