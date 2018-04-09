@@ -62,4 +62,19 @@ public class ProfileServlet extends HttpServlet {
 
     request.getRequestDispatcher("/WEB-INF/view/profile.jsp").forward(request, response);
   }
+
+  public void doPost(HttpServletRequest request, HttpServletResponse response)
+		  	throws IOException, ServletException {
+
+    String username = (String) request.getSession().getAttribute("user");
+    if (username == null) {
+      // user is not logged in, don't let them create a conversation
+      response.sendRedirect("/users");
+      return;
+    }
+    User user = userStore.getUser(username);
+		response.sendRedirect("/users/" + user.getName());
+	  //response.getWriter().println("<p>Username : " + username + "</p>");
+	  //response.getWriter().println("<p>Password : " + password + "</p>");
+  }
 }
