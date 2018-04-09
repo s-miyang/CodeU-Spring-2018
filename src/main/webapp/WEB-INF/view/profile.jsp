@@ -67,8 +67,8 @@ See User.java for all the methods to call -Michelle
    <hr>
 
    </br>
-   <h6>Edit your profile:</h6>
    <form action="/users/<%=request.getSession().getAttribute("user")%>" id="about_form" method="POST">
+     <h5>Edit your profile:</h5>
      <input type="text" autocomplete="off" id="about_text"></input>
    </form>
 
