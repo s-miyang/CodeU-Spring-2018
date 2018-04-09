@@ -34,7 +34,7 @@ public class ProfileServlet extends HttpServlet {
   /** Store class that gives access to Users. */
   private UserStore userStore;
 
-  private PersistentStorageAgent persistentStorageAgent;
+  private PersistentStorageAgent persistentStorageAgent = new PersistentDataStore();
 
   /**
    * Set up state for handling login-related requests. This method is only called when running in a
