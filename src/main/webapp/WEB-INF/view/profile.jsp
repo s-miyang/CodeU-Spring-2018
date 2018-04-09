@@ -36,7 +36,7 @@ See User.java for all the methods to call -Michelle
 
  <script language="JavaScript">
     function showInput() {
-        document.getElementById("display").innerHTML = document.getElementById("about_form").value;
+        document.getElementById("display").innerHTML = document.getElementById("about_text").value;
     }
   </script>
 </head>
@@ -67,7 +67,7 @@ See User.java for all the methods to call -Michelle
    </form>
 
    <h4>About <%= request.getSession().getAttribute("user") %></h4>
-   <p><span id="display"></span></p>
+   <p id="display"></p>
    <hr>
    <h4><%= request.getSession().getAttribute("user") %>'s sent messages</h4>
  </div>
