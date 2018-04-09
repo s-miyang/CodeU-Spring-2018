@@ -52,20 +52,11 @@ See User.java for all the methods to call -Michelle
 
  <div id="container">
    <h1><%= request.getSession().getAttribute("user") %>'s Profile Page</h1>
+   <hr>
 
-   <% if(request.getAttribute("error") != null){ %>
-       <h2 style="color:red"><%= request.getAttribute("error") %></h2>
-   <% } %>
-
-   <form action="/login" method="POST">
-     <label for="username">NotUsername: </label>
-     <input type="text" name="username" id="username">
-     <br/>
-     <label for="password">NotPassword: </label>
-     <input type="password" name="password" id="password">
-     <br/><br/>
-     <button type="submit">Login</button>
-   </form>
+   <h4>About <%= request.getSession().getAttribute("user") %></h4>
+   <br></br>
+   <h4><%= request.getSession().getAttribute("user") %>'s sent messages</h4>
  </div>
 </body>
 </html>
