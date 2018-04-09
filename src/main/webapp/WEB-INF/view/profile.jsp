@@ -86,17 +86,13 @@ List<Message> messages = (List<Message>) request.getAttribute("messages");
    <hr>
    <h4><%= request.getSession().getAttribute("user") %>'s Sent Messages</h4>
 
-   <div id="chat">
+   <%-- <div id="chat">
      <ul>
-   <%
      for (Message message : messages) {
-       %>
-         <li><strong><%= message.getCreationTime() %>:</strong> <%= message.getContent() %></li>
-       <%
+         <li><strong> <%= message.getCreationTime() %>:</strong> <%= message.getContent() %> </li>
      }
-   %>
      </ul>
-   </div>
+   </div> --%>
 
    <hr/>
 
