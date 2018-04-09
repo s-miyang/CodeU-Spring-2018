@@ -51,7 +51,7 @@ See User.java for all the methods to call -Michelle
 
 
  <div id="container">
-   <h1><% request.getSession().getAttribute("user") %>'s Profile Page</h1>
+   <h1><%= request.getSession().getAttribute("user") %>'s Profile Page</h1>
 
    <% if(request.getAttribute("error") != null){ %>
        <h2 style="color:red"><%= request.getAttribute("error") %></h2>
