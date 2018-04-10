@@ -90,8 +90,8 @@ public class ProfileServlet extends HttpServlet {
     }
     User user = userStore.getUser(username);
 
-    String about_text = (String) request.getParameter("about_text");
-    user.setBio(about_text);
+    String about = (String) request.getParameter("about_text");
+    user.setBio(about);
     userStore.editUser(user);
 		response.sendRedirect("/users/" + user.getName());
   }
