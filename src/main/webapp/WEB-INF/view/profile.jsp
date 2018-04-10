@@ -64,34 +64,30 @@ List<Message> messages = (List<Message>) request.getAttribute("messages");
    <h1><%= request.getSession().getAttribute("user") %>'s Profile Page</h1>
    <hr>
 
-   </br>
    <form action="/users/<%=request.getSession().getAttribute("user")%>" id="about_form" method="POST">
      <h5>Edit your profile:</h5>
      <input type="text" autocomplete="off" name="about_text" id="about_text"></input>
      <button type="submit">Submit</button>
    </form>
-
-   <%-- <input type="submit"></input> --%>
    <h4>About <%= request.getSession().getAttribute("user") %></h4>
    <p> <%= UserStore.getInstance().getUser((String) request.getSession().getAttribute("user")).getBio() %></p>
    <hr>
+
    <h4><%= request.getSession().getAttribute("user") %>'s Sent Messages</h4>
-
-
-   <form action="/index.jsp" method="link">
-     <button type="submit">Log Out</button>
-   </form>
-
    <div id="chat">
      <ul>
      <% for (Message message : messages) { %>
-        <li><strong> <%= message.getCreationTime() %> :</strong> <%=  message.getContent() %> </li>
+        <li><strong> <%= message.getCreationTime() %>: </strong> <%=  message.getContent() %> </li>
       <%  }
      %>
      </ul>
    </div>
 
    <hr/>
+   
+   <form action="/index.jsp" method="link">
+     <button type="submit">Log Out</button>
+   </form>
 
  </div>
 </body>
