@@ -108,6 +108,6 @@ public class MessageStore {
   }
 
   public List<Message> retMessages() {
-    persistentStorageAgent.loadMessages();
+    return persistentStorageAgent.loadMessages();
   }
 }
