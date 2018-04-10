@@ -74,7 +74,7 @@ public class ProfileServlet extends HttpServlet {
   public void doGet(HttpServletRequest request, HttpServletResponse response)
       throws IOException, ServletException {
     try {
-      List<Message> messages = helper();
+      List<Message> messages = messageStore.retMessages();
       request.setAttribute("messages", messages);
     } catch (Exception e) {
       throw new PersistentDataStoreException(e);
