@@ -85,7 +85,6 @@ public class ProfileServlet extends HttpServlet {
 
     String username = (String) request.getSession().getAttribute("user");
     if (username == null) {
-      // user is not logged in, don't let them create a conversation
       response.sendRedirect("/users");
       return;
     }
