@@ -26,6 +26,8 @@ See User.java for all the methods to call -Michelle
 <%@ page import="codeu.model.data.Message" %>
 <%@ page import="codeu.model.store.basic.UserStore" %>
 <%
+String user = (String) request.getAttribute("user");
+String bio = (String) request.getAttribute("bio");
 List<Message> messages = (List<Message>) request.getAttribute("messages");
 %>
 
@@ -34,61 +36,46 @@ List<Message> messages = (List<Message>) request.getAttribute("messages");
 <head>
  <title>Login</title>
  <link rel="stylesheet" href="/css/main.css">
- <style>
-   label {
-     display: inline-block;
-     width: 100px;
-   }
-   input:focus
-   {
-     outline:none;
-   }
-   #messages {
-     background-color: white;
-     height: 500px;
-     overflow-y: scroll
-   }
- </style>
 </head>
 <body>
 
   <nav>
     <a id="navTitle" href="/">CodeU Chat App</a>
-    <% if(request.getSession().getAttribute("user") != null){ %>
-      <a>Hello <%= request.getSession().getAttribute("user") %>!</a>
+    <% if(user != null){ %>
+      <a>Hello <%=request.getSession().getAttribute("user")%>!</a>
     <% } else{ %>
       <a href="/login">Login</a>
       <a href="/register">Register</a>
     <% } %>
     <a href="/conversations">Conversations</a>
-    <a href="/about.jsp">About</a>
     <a href="/users/<%=request.getSession().getAttribute("user")%>">My Profile</a>
+    <a href="/about.jsp">About</a>
   </nav>
 
  <div id="container">
-   <h1><%= request.getSession().getAttribute("user") %>'s Profile Page</h1>
+   <h1><%= user %>'s Profile Page</h1>
    <hr>
-
-   <form action="/users/<%=request.getSession().getAttribute("user")%>" id="about_form" method="POST">
+   <% if (UserStore.getInstance().getUser(user).getId().equals(UserStore.getInstance().getUser((String) request.getSession().getAttribute("user")).getId())) { %>
+   <form action="/users/<%=user%>" id="about_form" method="POST">
      <h5>Edit your profile:</h5>
      <input type="text" autocomplete="off" name="about_text" id="about_text"></input>
      <button type="submit">Publish</button>
    </form>
+   <% } %>
 
-   <h4>About <%= request.getSession().getAttribute("user") %></h4>
-   <p> <%= UserStore.getInstance().getUser((String) request.getSession().getAttribute("user")).getBio() %></p>
+   <h4>About <%= user %></h4>
+   <% System.out.println("\n\n crying: " + UserStore.getInstance().getUser((String) request.getSession().getAttribute("user")).getBio()); %>
+   <p> <%= bio %></p>
 
    <hr>
 
-   <h4><%= request.getSession().getAttribute("user") %>'s Sent Messages</h4>
+   <h4><%= user %>'s Sent Messages</h4>
    <div id="messages">
      <ul>
      <% for (Message message : messages) {
-          if (message.getAuthorId().equals(UserStore.getInstance().getUser((String) request.getSession().getAttribute("user")).getId())) {
        %>
         <li><strong> <%= message.getCreationTime() %>: </strong> <%=  message.getContent() %> </li>
       <%
-          }
         }
      %>
      </ul>
@@ -96,7 +83,7 @@ List<Message> messages = (List<Message>) request.getAttribute("messages");
 
    <hr/>
 
-   <form action="/index.jsp" method="link">
+   <form action="/logout" method="POST">
      <button type="submit">Log Out</button>
    </form>
 

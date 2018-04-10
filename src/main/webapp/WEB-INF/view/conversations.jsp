@@ -40,8 +40,8 @@
       <a href="/register">Register</a>
     <% } %>
     <a href="/conversations">Conversations</a>
-    <a href="/about.jsp">About</a>
     <a href="/users/<%=request.getSession().getAttribute("user")%>">My Profile</a>
+    <a href="/about.jsp">About</a>
   </nav>
 
   <div id="container">
@@ -55,7 +55,7 @@
       <form action="/conversations" method="POST">
           <div class="form-group">
             <label class="form-control-label">Title:</label>
-          <input type="text" name="conversationTitle">
+          <input type="text" required="required" name="conversationTitle">
         </div>
 
         <button type="submit">Create</button>

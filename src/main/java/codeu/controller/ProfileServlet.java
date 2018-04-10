@@ -23,6 +23,9 @@ import java.io.IOException;
 import java.time.Instant;
 import java.util.UUID;
 import java.util.List;
+import java.util.ArrayList;
+import java.util.Comparator;
+import java.util.Collections;
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
@@ -74,8 +77,30 @@ public class ProfileServlet extends HttpServlet {
   @Override
   public void doGet(HttpServletRequest request, HttpServletResponse response)
       throws IOException, ServletException {
+
+    String requestUrl = request.getRequestURI();
+    String user = requestUrl.substring("/users/".length());
+    request.setAttribute("user", user);
+
+    User thisUser = userStore.getUser(user);
+    if (thisUser == null) {
+      // couldn't find conversation, redirect to conversation list
+      System.out.println("User was null: " + user);
+      response.sendRedirect("/users");
+      return;
+    }
+    String bio = thisUser.getBio();
+    request.setAttribute("bio", bio);
+
     List<Message> messages = messageStore.retMessages();
-    request.setAttribute("messages", messages);
+    List<Message> myMessages = new ArrayList<>();
+    for (Message message: messages) {
+        if (message.getAuthorId().equals(thisUser.getId())) {
+          myMessages.add(message);
+        }
+    }
+    Collections.sort(myMessages, new SortByTime());
+    request.setAttribute("messages", myMessages);
     request.getRequestDispatcher("/WEB-INF/view/profile.jsp").forward(request, response);
   }
 
@@ -89,8 +114,8 @@ public class ProfileServlet extends HttpServlet {
       return;
     }
     User user = userStore.getUser(username);
-    String about = (String) request.getParameter("about_text");
-    user.setBio(about);
+    user.setBio((String) request.getParameter("about_text"));
+    System.out.println("\n\nlmao someone plsssss help: " + (String) request.getParameter("about_text") + "\n\n");
     userStore.editUser(user);
 		response.sendRedirect("/users/" + user.getName());
   }

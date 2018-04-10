@@ -25,6 +25,7 @@ public class User {
   private final Instant creation;
 
 // Added for profile pages. See profile.jsp
+  private Instant editTime;
   private String bio;
   private byte[] pic; // pictures can be stored as byte arrays
   private String school; // name of their school
@@ -49,6 +50,7 @@ public class User {
     this.pic = null;
     this.school = "";
     this.gradYear = 0;
+    this.editTime = creation;
   }
 
 /** Returns the ID of this User. */
@@ -86,11 +88,16 @@ public class User {
 	  // }
 	  // return false;
     bio = s;
+    editTime = Instant.now();
   }
 
   /* returns the bio associated with the user*/
   public String getBio() {
 	  return bio;
+  }
+
+  public Instant getEditTime() {
+	  return editTime;
   }
 
   /*

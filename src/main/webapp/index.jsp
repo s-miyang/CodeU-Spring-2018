@@ -31,13 +31,13 @@
       <a href="/register">Register</a>
     <% } %>
     <a href="/about.jsp">About</a>
-    <a href="/testdata">Load Test Data</a>
+    <%-- <a href="/testdata">Load Test Data</a> --%>
   </nav>
 
   <div id="container">
     <div
       style="width:75%; margin-left:auto; margin-right:auto; margin-top: 50px;">
-      <h1>[Insert Name Here] Messaging App</h1>
+      <h1>ToadBlue Messaging App</h1>
       <h2>Welcome!</h2>
 
       <ul>

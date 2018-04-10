@@ -59,6 +59,7 @@ public class PersistentDataStore {
     // Retrieve all users from the datastore.
     Query query = new Query("chat-users");
     PreparedQuery results = datastore.prepare(query);
+    Instant maxInstant = Instant.MIN;
 
     for (Entity entity : results.asIterable()) {
       try {
@@ -66,10 +67,15 @@ public class PersistentDataStore {
         String userName = (String) entity.getProperty("username");
         String password = (String) entity.getProperty("password");
         String about = (String) entity.getProperty("about_text");
+        // Instant editTime = Instant.parse((String) entity.getProperty("edit_time"));
         Instant creationTime = Instant.parse((String) entity.getProperty("creation_time"));
+        // if (editTime.isAfter(maxInstant)) {
         User user = new User(uuid, userName, password, creationTime);
         user.setBio(about);
+        System.out.println("\n\nconfusion @ load: " + userName + ": " + about + "\n\n");
         users.add(user);
+        //   maxInstant = editTime;
+        // }
       } catch (Exception e) {
         // In a production environment, errors should be very rare. Errors which may
         // occur include network errors, Datastore service errors, authorization errors,
@@ -156,6 +162,7 @@ public class PersistentDataStore {
     userEntity.setProperty("password", user.getPassword());
     userEntity.setProperty("creation_time", user.getCreationTime().toString());
     userEntity.setProperty("about_text", user.getBio());
+    System.out.println("\n\ndis is get bio in persistence: " + user.getBio() + "\n\n");
     datastore.put(userEntity);
   }
 

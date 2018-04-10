@@ -27,15 +27,6 @@ List<Message> messages = (List<Message>) request.getAttribute("messages");
 <head>
   <title><%= conversation.getTitle() %></title>
   <link rel="stylesheet" href="/css/main.css" type="text/css">
-
-  <style>
-    #chat {
-      background-color: white;
-      height: 500px;
-      overflow-y: scroll
-    }
-  </style>
-
   <script>
     // scroll the chat div to the bottom
     function scrollChat() {
@@ -55,8 +46,8 @@ List<Message> messages = (List<Message>) request.getAttribute("messages");
       <a href="/register">Register</a>
     <% } %>
     <a href="/conversations">Conversations</a>
-    <a href="/about.jsp">About</a>
     <a href="/users/<%=request.getSession().getAttribute("user")%>">My Profile</a>
+    <a href="/about.jsp">About</a>
   </nav>
 
   <div id="container">
@@ -67,24 +58,28 @@ List<Message> messages = (List<Message>) request.getAttribute("messages");
     <hr/>
 
     <div id="chat">
-      <ul>
     <%
       for (Message message : messages) {
         String author = UserStore.getInstance()
           .getUser(message.getAuthorId()).getName();
-    %>
-      <li><strong><a href="/users/<%= author %>"><%= author %></a>:</strong> <%= message.getContent() %></li>
+        if (author.equals(request.getSession().getAttribute("user"))) { %>
+      <p align="right"><span id="my_chat"><%= message.getContent() %></span><strong> [<a href="/users/<%=UserStore.getInstance()
+        .getUser(message.getAuthorId()).getName()%>"><%= author %></a>]</strong></p>
     <%
+        } else { %>
+      <p align="left">[<strong><a href="/users/<%=UserStore.getInstance()
+        .getUser(message.getAuthorId()).getName()%>"><%= author %></a></strong>] <span id="other_chat"><%= message.getContent() %></span></p>
+    <%
+        }
       }
     %>
-      </ul>
     </div>
 
     <hr/>
 
     <% if (request.getSession().getAttribute("user") != null) { %>
     <form action="/chat/<%= conversation.getTitle() %>" method="POST">
-        <input type="text" name="message">
+        <input type="text" required="required" name="message">
         <br/>
         <button type="submit">Send</button>
     </form>
