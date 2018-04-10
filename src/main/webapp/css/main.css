@@ -77,7 +77,7 @@ label {
 
 #my_chat {
   display: inline-block;
-  background-color: #997788;
+  background-color: #e0d6db;
   color: #ffffff;
   width: 25%;
   border-radius: 5px;
@@ -90,7 +90,7 @@ label {
 
 #other_chat {
   display: inline-block;
-  background-color: #e0d6db;
+  background-color: #997788;
   color: #ffffff;
   width: 25%;
   border-radius: 5px;

@@ -40,7 +40,7 @@ List<Message> messages = (List<Message>) request.getAttribute("messages");
 <body>
 
   <nav>
-    <a id="navTitle" href="/">CodeU Chat App</a>
+    <a id="navTitle" href="/">Home</a>
     <% if(user != null){ %>
       <a>Hello <%=request.getSession().getAttribute("user")%>!</a>
     <% } else{ %>
