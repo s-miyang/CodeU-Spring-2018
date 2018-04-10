@@ -53,22 +53,22 @@ public class User {
 
 /** Returns the ID of this User. */
   public UUID getId() {
-    return id;
+    return this.id;
   }
 
   /** Returns the username of this User. */
   public String getName() {
-    return name;
+    return this.name;
   }
 
   /** Returns the password of this user */
   public String getPassword() {
-	  return password;
+	  return this.password;
   }
 
   /** Returns the creation time of this User. */
   public Instant getCreationTime() {
-    return creation;
+    return this.creation;
   }
 
 /* -----------------------------------------ADDED FOR PROFILE PAGES-------------------------------------------*/
