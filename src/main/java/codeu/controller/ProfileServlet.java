@@ -72,8 +72,12 @@ public class ProfileServlet extends HttpServlet {
    */
   public void doGet(HttpServletRequest request, HttpServletResponse response)
       throws IOException, ServletException {
-    List<Message> messages = helper();
-    request.setAttribute("messages", messages);
+    try {
+      List<Message> messages = helper();
+      request.setAttribute("messages", messages);
+    } catch (Exception e) {
+      throw new PersistentDataStoreException(e);
+    }
     request.getRequestDispatcher("/WEB-INF/view/profile.jsp").forward(request, response);
   }
 
