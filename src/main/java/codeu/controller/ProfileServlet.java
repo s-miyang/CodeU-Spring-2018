@@ -16,6 +16,7 @@ package codeu.controller;
 
 import codeu.model.data.User;
 import codeu.model.store.basic.UserStore;
+import codeu.model.store.basic.MessageStore;
 import java.io.IOException;
 import java.time.Instant;
 import java.util.UUID;
@@ -32,6 +33,9 @@ public class ProfileServlet extends HttpServlet {
 
   /** Store class that gives access to Users. */
   private UserStore userStore;
+
+  /** Store class that gives access to Messages. */
+  private MessageStore messageStore;
 
   /**
    * Set up state for handling login-related requests. This method is only called when running in a
@@ -52,17 +56,23 @@ public class ProfileServlet extends HttpServlet {
   }
 
   /**
+   * Sets the MessageStore used by this servlet. This function provides a common setup method for
+   * use by the test framework or the servlet's init() function.
+   */
+  void setMessageStore(MessageStore messageStore) {
+    this.messageStore = messageStore;
+  }
+
+  /**
    * This function fires when a user requests the /users URL. It simply forwards the request to
    * profile.jsp.
    */
   @Override
   public void doGet(HttpServletRequest request, HttpServletResponse response)
       throws IOException, ServletException {
+    List<Message> messages = messageStore.retMessages();
+    request.setAttribute("messages", messages);
     request.getRequestDispatcher("/WEB-INF/view/profile.jsp").forward(request, response);
-    // String username = (String) request.getSession().getAttribute("user");
-    // User user = userStore.getUser(username);
-    // String aboutMe = user.getBio();
-    // request.setAttribute("about_text", aboutMe);
   }
 
   @Override

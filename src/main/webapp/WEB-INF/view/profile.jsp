@@ -23,7 +23,6 @@ See User.java for all the methods to call -Michelle
 --%>
 
 <%@ page import="java.util.List" %>
-<%@ page import="codeu.model.data.Conversation" %>
 <%@ page import="codeu.model.data.Message" %>
 <%@ page import="codeu.model.store.basic.UserStore" %>
 <%
@@ -40,20 +39,11 @@ List<Message> messages = (List<Message>) request.getAttribute("messages");
      display: inline-block;
      width: 100px;
    }
+   input:focus
+   {
+     outline:none;
+   }
  </style>
-
- <%-- <script language="JavaScript">
-    function showInput() {
-        document.getElementById("display").innerHTML = document.getElementById("about_text").value;
-    }
-  </script> --%>
-
-  <style type="text/css">
-  input:focus
-  {
-    outline:none;
-  }
-  </style>
 </head>
 <body>
 
@@ -92,13 +82,14 @@ List<Message> messages = (List<Message>) request.getAttribute("messages");
      <button type="submit">Log Out</button>
    </form>
 
-   <%-- <div id="chat">
+   <div id="chat">
      <ul>
-     for (Message message : messages) {
-         <li><strong> <%= message.getCreationTime() %>:</strong> <%= message.getContent() %> </li>
-     }
+     <% for (Message message : messages) { %>
+        <li><strong> <%= message.getCreationTime() %> :</strong> <%=  message.getContent() %> </li>
+      <%  }
+     %>
      </ul>
-   </div> --%>
+   </div>
 
    <hr/>
 
