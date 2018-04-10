@@ -72,10 +72,12 @@ List<Message> messages = (List<Message>) request.getAttribute("messages");
    <form action="/users/<%=request.getSession().getAttribute("user")%>" id="about_form" method="POST">
      <h5>Edit your profile:</h5>
      <input type="text" autocomplete="off" name="about_text" id="about_text"></input>
-     <button type="submit">Submit</button>
+     <button type="submit">Publish</button>
    </form>
+
    <h4>About <%= request.getSession().getAttribute("user") %></h4>
    <p> <%= UserStore.getInstance().getUser((String) request.getSession().getAttribute("user")).getBio() %></p>
+
    <hr>
 
    <h4><%= request.getSession().getAttribute("user") %>'s Sent Messages</h4>

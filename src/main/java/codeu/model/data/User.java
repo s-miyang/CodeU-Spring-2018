@@ -85,12 +85,12 @@ public class User {
 		//   return true;
 	  // }
 	  // return false;
-    this.bio = s;
+    bio = s;
   }
 
   /* returns the bio associated with the user*/
   public String getBio() {
-	  return this.bio;
+	  return bio;
   }
 
   /*
@@ -98,19 +98,19 @@ public class User {
    * an array of bytes first...
    * */
   public void setPic(byte[] p) {
-	  this.pic = p;
+	  pic = p;
   }
 
   public byte[] getPic() {
-      return this.pic;
+      return pic;
   }
 
   public void setSchool(String s) {
-      this.school = s;
+      school = s;
   }
 
   public String getSchool() {
-      return this.school;
+      return school;
   }
 
   /*
@@ -121,12 +121,12 @@ public class User {
       if (year < 2018 || year > 2024) {
           return false;
       }
-      this.gradYear = year;
+      gradYear = year;
       return true;
   }
 
   public int getGradYear() {
-      return this.gradYear;
+      return gradYear;
   }
 
 }
