@@ -18,6 +18,7 @@ import codeu.model.data.User;
 import codeu.model.data.Message;
 import codeu.model.store.basic.UserStore;
 import codeu.model.store.basic.MessageStore;
+import codeu.model.store.persistence.PersistentDataStoreException;
 import java.io.IOException;
 import java.time.Instant;
 import java.util.UUID;
@@ -71,7 +72,7 @@ public class ProfileServlet extends HttpServlet {
    */
   @Override
   public void doGet(HttpServletRequest request, HttpServletResponse response)
-      throws IOException, ServletException {
+      throws IOException, ServletException, PersistentDataStoreException {
     List<Message> messages = messageStore.retMessages();
     request.setAttribute("messages", messages);
     request.getRequestDispatcher("/WEB-INF/view/profile.jsp").forward(request, response);
