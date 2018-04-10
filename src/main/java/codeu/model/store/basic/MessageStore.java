@@ -108,7 +108,7 @@ public class MessageStore {
     this.messages = messages;
   }
 
-  public List<Message> retMessages() throws PersistentDataStoreException {
+  public List<Message> retMessages() {
     return messages;
   }
 }
