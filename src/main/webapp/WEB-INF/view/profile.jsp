@@ -11,8 +11,8 @@ See User.java for all the methods to call -Michelle
 	- Limit biography to only 180 characters long (changeable in User.java)
 	- Need to create a new class to parse the image to store in the picture
 	- Grad year is limited to 2018 <= year <= 2024 (changeable in User.java)
-	
-	private String bio; 
+
+	private String bio;
   	private byte[] pic; // pictures can be stored as byte arrays
  	private String school; // name of their school
  	private int gradYear; // year they'll graduate
@@ -22,51 +22,71 @@ See User.java for all the methods to call -Michelle
 
 --%>
 
+<%@ page import="java.util.List" %>
+<%@ page import="codeu.model.data.Message" %>
+<%@ page import="codeu.model.store.basic.UserStore" %>
+<%
+String user = (String) request.getAttribute("user");
+String bio = (String) request.getAttribute("bio");
+List<Message> messages = (List<Message>) request.getAttribute("messages");
+%>
+
 <!DOCTYPE html>
 <html>
 <head>
  <title>Login</title>
  <link rel="stylesheet" href="/css/main.css">
- <style>
-   label {
-     display: inline-block;
-     width: 100px;
-   }
- </style>
 </head>
 <body>
 
-
   <nav>
     <a id="navTitle" href="/">CodeU Chat App</a>
-    <a href="/conversations">Conversations</a>
-    <% if(request.getSession().getAttribute("user") != null){ %>
-      <a>Hello <%= request.getSession().getAttribute("user") %>!</a>
+    <% if(user != null){ %>
+      <a>Hello <%=request.getSession().getAttribute("user")%>!</a>
     <% } else{ %>
       <a href="/login">Login</a>
       <a href="/register">Register</a>
     <% } %>
+    <a href="/conversations">Conversations</a>
+    <a href="/users/<%=request.getSession().getAttribute("user")%>">My Profile</a>
     <a href="/about.jsp">About</a>
-    <a href="/profile.jsp">HERE'S YOUR PROFILE PAGE</a>
   </nav>
 
-
  <div id="container">
-   <h1>Login</h1>
-
-   <% if(request.getAttribute("error") != null){ %>
-       <h2 style="color:red"><%= request.getAttribute("error") %></h2>
+   <h1><%= user %>'s Profile Page</h1>
+   <hr>
+   <% if (UserStore.getInstance().getUser(user).getId().equals(UserStore.getInstance().getUser((String) request.getSession().getAttribute("user")).getId())) { %>
+   <form action="/users/<%=user%>" id="about_form" method="POST">
+     <h5>Edit your profile:</h5>
+     <input type="text" autocomplete="off" name="about_text" id="about_text"></input>
+     <button type="submit">Publish</button>
+   </form>
    <% } %>
 
-   <form action="/login" method="POST">
-     <label for="username">NotUsername: </label>
-     <input type="text" name="username" id="username">
-     <br/>
-     <label for="password">NotPassword: </label>
-     <input type="password" name="password" id="password">
-     <br/><br/>
-     <button type="submit">Login</button>
+   <h4>About <%= user %></h4>
+   <% System.out.println("\n\n crying: " + UserStore.getInstance().getUser((String) request.getSession().getAttribute("user")).getBio()); %>
+   <p> <%= bio %></p>
+
+   <hr>
+
+   <h4><%= user %>'s Sent Messages</h4>
+   <div id="messages">
+     <ul>
+     <% for (Message message : messages) {
+       %>
+        <li><strong> <%= message.getCreationTime() %>: </strong> <%=  message.getContent() %> </li>
+      <%
+        }
+     %>
+     </ul>
+   </div>
+
+   <hr/>
+
+   <form action="/logout" method="POST">
+     <button type="submit">Log Out</button>
    </form>
+
  </div>
 </body>
 </html>

@@ -23,9 +23,10 @@ public class User {
   private final String name;
   private final String password;
   private final Instant creation;
-  
+
 // Added for profile pages. See profile.jsp
-  private String bio; 
+  private Instant editTime;
+  private String bio;
   private byte[] pic; // pictures can be stored as byte arrays
   private String school; // name of their school
   private int gradYear; // year they'll graduate
@@ -43,12 +44,13 @@ public class User {
     this.name = name;
     this.password = password;
     this.creation = creation;
-    
+
     //added for profile
-    this.bio = "";
+    this.bio = "Hello! My name is " + this.name + ".";
     this.pic = null;
     this.school = "";
     this.gradYear = 0;
+    this.editTime = creation;
   }
 
 /** Returns the ID of this User. */
@@ -60,7 +62,7 @@ public class User {
   public String getName() {
     return name;
   }
-  
+
   /** Returns the password of this user */
   public String getPassword() {
 	  return password;
@@ -70,49 +72,55 @@ public class User {
   public Instant getCreationTime() {
     return creation;
   }
-  
+
 /* -----------------------------------------ADDED FOR PROFILE PAGES-------------------------------------------*/
-  
-  /* 
+
+  /*
    * Sets the bio of the user to be s
    * @requires s.length <= 180
    * @returns boolean of whether it was successful
    * 	true = success, false = failure
    * */
-  public boolean setBio(String s) {
-	  if (s.length() <= 180) {
-		  bio = s;
-		  return true;
-	  }
-	  return false;
+  public void setBio(String s) {
+	  // if (s.length() <= 180) {
+		//   this.bio = s;
+		//   return true;
+	  // }
+	  // return false;
+    bio = s;
+    editTime = Instant.now();
   }
-  
+
   /* returns the bio associated with the user*/
-  public String getbio() {
+  public String getBio() {
 	  return bio;
   }
-  
-  /* 
+
+  public Instant getEditTime() {
+	  return editTime;
+  }
+
+  /*
    * The client is going to have to change the picture into
    * an array of bytes first...
    * */
   public void setPic(byte[] p) {
 	  pic = p;
   }
-  
+
   public byte[] getPic() {
       return pic;
   }
-  
+
   public void setSchool(String s) {
       school = s;
   }
-  
+
   public String getSchool() {
       return school;
   }
-  
-  /* 
+
+  /*
    * returns true if success, false if fail
    * success = year that's between 2018 and 2024 ***SUBJECT TO CHANGE***
    */
@@ -123,9 +131,9 @@ public class User {
       gradYear = year;
       return true;
   }
-  
+
   public int getGradYear() {
       return gradYear;
   }
-  
+
 }
