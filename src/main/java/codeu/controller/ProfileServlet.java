@@ -15,6 +15,7 @@
 package codeu.controller;
 
 import codeu.model.data.User;
+import codeu.model.data.Message;
 import codeu.model.store.basic.UserStore;
 import codeu.model.store.basic.MessageStore;
 import java.io.IOException;
