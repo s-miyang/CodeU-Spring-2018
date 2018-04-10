@@ -70,11 +70,15 @@ public class ProfileServlet extends HttpServlet {
    * This function fires when a user requests the /users URL. It simply forwards the request to
    * profile.jsp.
    */
-  public void doGet2(HttpServletRequest request, HttpServletResponse response)
-      throws IOException, ServletException, PersistentDataStoreException {
-    List<Message> messages = messageStore.retMessages();
+  public void doGet(HttpServletRequest request, HttpServletResponse response)
+      throws IOException, ServletException {
+    List<Message> messages = helper();
     request.setAttribute("messages", messages);
     request.getRequestDispatcher("/WEB-INF/view/profile.jsp").forward(request, response);
+  }
+
+  public List<Message> helper() throws PersistentDataStoreException {
+    return messageStore.retMessages();
   }
 
   @Override
