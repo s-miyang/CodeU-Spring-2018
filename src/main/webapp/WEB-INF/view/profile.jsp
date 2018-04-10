@@ -43,6 +43,11 @@ List<Message> messages = (List<Message>) request.getAttribute("messages");
    {
      outline:none;
    }
+   #messages {
+     background-color: white;
+     height: 500px;
+     overflow-y: scroll
+   }
  </style>
 </head>
 <body>
@@ -74,17 +79,21 @@ List<Message> messages = (List<Message>) request.getAttribute("messages");
    <hr>
 
    <h4><%= request.getSession().getAttribute("user") %>'s Sent Messages</h4>
-   <div id="chat">
+   <div id="messages">
      <ul>
-     <% for (Message message : messages) { %>
+     <% for (Message message : messages) {
+          if (message.author == UserStore.getInstance().getUser((String) request.getSession().getAttribute("user")).getID()) {
+       %>
         <li><strong> <%= message.getCreationTime() %>: </strong> <%=  message.getContent() %> </li>
-      <%  }
+      <%
+          }
+        }
      %>
      </ul>
    </div>
 
    <hr/>
-   
+
    <form action="/index.jsp" method="link">
      <button type="submit">Log Out</button>
    </form>
