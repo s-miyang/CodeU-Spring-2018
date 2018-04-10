@@ -16,23 +16,22 @@
 body {
   margin: 0;
   font-family: sans-serif;
-  line-height: 1.6;
   font-size: 18px;
   line-height: 1.6;
-  color: #444;
-  background-color: #eeeeee;
+  color: #000000;
+  background-color: #ffffff;
 }
 
 nav {
-  background-color: #283593;
+  background-color: #ffffff;
 }
 
 nav a {
-  color: white;
+  color: #000000;
   display: inline-block;
   font-size: 24px;
   margin: 15px;
-  text-decoration: none;
+  text-decoration: underline;
 }
 
 a {
@@ -91,7 +90,7 @@ label {
 
 #other_chat {
   display: inline-block;
-  background-color: #778899;
+  background-color: #e0d6db;
   color: #ffffff;
   width: 25%;
   border-radius: 5px;
