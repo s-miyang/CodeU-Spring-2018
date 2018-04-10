@@ -82,7 +82,7 @@ List<Message> messages = (List<Message>) request.getAttribute("messages");
    <div id="messages">
      <ul>
      <% for (Message message : messages) {
-          if (message.getAuthorId() == UserStore.getInstance().getUser((String) request.getSession().getAttribute("user")).getId()) {
+          if (message.getAuthorId().equals(UserStore.getInstance().getUser((String) request.getSession().getAttribute("user")).getId())) {
        %>
         <li><strong> <%= message.getCreationTime() %>: </strong> <%=  message.getContent() %> </li>
       <%
