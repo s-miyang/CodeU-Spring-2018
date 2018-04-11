@@ -66,6 +66,6 @@ public class LogoutServlet extends HttpServlet {
       throws IOException, ServletException {
     request.logout();
     request.getSession().invalidate();
-    response.sendRedirect("/logout");
+    response.sendRedirect("/index.jsp");
   }
 }

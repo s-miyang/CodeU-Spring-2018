@@ -18,11 +18,12 @@
 <head>
   <title>CodeU Chat App</title>
   <link rel="stylesheet" href="/css/main.css">
+  <link href="https://fonts.googleapis.com/css?family=Lato" rel="stylesheet">
 </head>
 <body>
 
   <nav>
-    <a id="navTitle" href="/">Home</a>
+    <%-- <a id="navTitle" href="/">Home</a> --%>
     <% if(request.getSession().getAttribute("user") != null){ %>
       <a>Hello <%= request.getSession().getAttribute("user") %>!</a>
       <a href="/conversations">Conversations</a>

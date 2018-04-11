@@ -3,6 +3,7 @@
     <head>
         <title>Register</title>
         <link rel="stylesheet" href="/css/main.css">
+        <link href="https://fonts.googleapis.com/css?family=Lato" rel="stylesheet">
         <style>
             label {
             display: inline-block;
@@ -14,7 +15,7 @@
 
     <body>
       <nav>
-         <a id="navTitle" href="/">Home</a>
+         <%-- <a id="navTitle" href="/">Home</a> --%>
          <% if(request.getSession().getAttribute("user") != null){ %>
            <a>Hello <%= request.getSession().getAttribute("user") %>!</a>
          <% } else{ %>

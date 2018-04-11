@@ -34,13 +34,14 @@ List<Message> messages = (List<Message>) request.getAttribute("messages");
 <!DOCTYPE html>
 <html>
 <head>
- <title>Login</title>
- <link rel="stylesheet" href="/css/main.css">
+  <title>Login</title>
+  <link rel="stylesheet" href="/css/main.css">
+  <link href="https://fonts.googleapis.com/css?family=Lato" rel="stylesheet">
 </head>
 <body>
 
   <nav>
-    <a id="navTitle" href="/">Home</a>
+    <%-- <a id="navTitle" href="/">Home</a> --%>
     <% if(user != null){ %>
       <a>Hello <%=request.getSession().getAttribute("user")%>!</a>
     <% } else{ %>
