@@ -17,37 +17,25 @@
 <html>
 <head>
   <title>CodeU Chat App</title>
-  <link rel="stylesheet" href="/css/index.css" type="text/css">
+  <link rel="stylesheet" href="css/index.css" type="text/css">
   <link href="https://fonts.googleapis.com/css?family=Lato" rel="stylesheet">
 </head>
 <body>
-
-  <%-- <nav>
-    <a id="navTitle" href="/">Home</a>
-    <% if(request.getSession().getAttribute("user") != null){ %>
-      <a>Hello <%= request.getSession().getAttribute("user") %>!</a>
-      <a href="/conversations">Conversations</a>
-    <% } else{ %>
-      <a href="/login">Login</a>
-      <a href="/register">Register</a>
-    <% } %>
-    <a href="/about.jsp">About</a>
-    <%-- <a href="/testdata">Load Test Data</a> --%>
-  </nav>
-
-  <div id="container">
-      <p>Welcome to ToadBlue</p>
+  <p class="title">w e l c o m e &nbsp;&nbsp; t o &nbsp;&nbsp; T o a d <span class="special">B l u e</span></p>
+  <div align="center" id="container">
       <form action="/login" method="POST">
-        <label for="username">USERNAME</label>
+        <label class="pls" for="username">U S E R N A M E</label>
         <br/>
         <input type="text" class="text-line" name="username" id="username">
         <br/>
-        <label for="password">PASSWORD</label>
+        <label for="password">P A S S W O R D</label>
         <br/>
         <input type="password" class="text-line" name="password" id="password">
         <br/><br/>
-        <button type="submit">SUBMIT</button>
+        <button type="submit">S I G N &nbsp;&nbsp; I N</button>
       </form>
+      </br>
+      <p><a href="/register">R&nbsp;E&nbsp;G&nbsp;I&nbsp;S&nbsp;T&nbsp;E&nbsp;R</a></p>
   </div>
 </body>
 </html>
