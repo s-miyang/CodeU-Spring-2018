@@ -18,6 +18,7 @@
 <head>
   <title>CodeU Chat App</title>
   <link rel="stylesheet" href="/css/index.css" type="text/css">
+  <link href="https://fonts.googleapis.com/css?family=Lato" rel="stylesheet">
 </head>
 <body>
 
@@ -42,9 +43,10 @@
         <input type="text" class="text-line" name="username" id="username">
         <br/>
         <label for="password">PASSWORD</label>
+        <br/>
         <input type="password" class="text-line" name="password" id="password">
         <br/><br/>
-        <button type="submit">Login</button>
+        <button type="submit">SUBMIT</button>
       </form>
   </div>
 </body>
