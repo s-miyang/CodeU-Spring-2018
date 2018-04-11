@@ -20,6 +20,7 @@ body {
   line-height: 1.6;
   color: #000000;
   background-color: #ffffff;
+  padding-bottom: 3%;
 }
 
 nav {
@@ -90,8 +91,8 @@ label {
 
 #other_chat {
   display: inline-block;
-  background-color: #e0d6db;
-  color: #757575;
+  background-color: #eae3e7;
+  color: #5d5d5d;
   width: 25%;
   border-radius: 5px;
   line-height: 1.5;

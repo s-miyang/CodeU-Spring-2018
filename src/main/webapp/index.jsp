@@ -17,11 +17,11 @@
 <html>
 <head>
   <title>CodeU Chat App</title>
-  <link rel="stylesheet" href="/css/main.css" type="text/css">
+  <link rel="stylesheet" href="/css/index.css" type="text/css">
 </head>
 <body>
 
-  <nav>
+  <%-- <nav>
     <a id="navTitle" href="/">Home</a>
     <% if(request.getSession().getAttribute("user") != null){ %>
       <a>Hello <%= request.getSession().getAttribute("user") %>!</a>
@@ -35,20 +35,17 @@
   </nav>
 
   <div id="container">
-    <div
-      style="width:75%; margin-left:auto; margin-right:auto; margin-top: 50px;">
-      <h1>ToadBlue Messaging App</h1>
-      <h2>Welcome!</h2>
-
-      <ul>
-        <li>If you do not have an account, please first <a href="/register">register</a> to get started.</li>
-        <li>Otherwise, go ahead and <a href="/login">login</a>.</li>
-        <li>Once logged in, go to the conversations page to
-            create or join a conversation.</li>
-        <li>View the <a href="/about.jsp">about</a> page to learn more about the
-            messaging app.</li>
-      </ul>
-    </div>
+      <p>Welcome to ToadBlue</p>
+      <form action="/login" method="POST">
+        <label for="username">USERNAME</label>
+        <br/>
+        <input type="text" class="text-line" name="username" id="username">
+        <br/>
+        <label for="password">PASSWORD</label>
+        <input type="password" class="text-line" name="password" id="password">
+        <br/><br/>
+        <button type="submit">Login</button>
+      </form>
   </div>
 </body>
 </html>
