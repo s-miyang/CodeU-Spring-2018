@@ -24,6 +24,8 @@ import java.io.IOException;
 import java.time.Instant;
 import java.util.List;
 import java.util.UUID;
+import java.util.Comparator;
+import java.util.Collections;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
@@ -98,6 +100,7 @@ public class ChatServlet extends HttpServlet {
     UUID conversationId = conversation.getId();
 
     List<Message> messages = messageStore.getMessagesInConversation(conversationId);
+    Collections.sort(messages, new SortByTime());
 
     request.setAttribute("conversation", conversation);
     request.setAttribute("messages", messages);
@@ -155,5 +158,15 @@ public class ChatServlet extends HttpServlet {
 
     // redirect to a GET request
     response.sendRedirect("/chat/" + conversationTitle);
+    // response.sendRedirect("/users/" + user.getName());
   }
+}
+
+class SortByTime implements Comparator<Message> {
+    // Used for sorting in ascending order of
+    // roll number
+    public int compare(Message a, Message b)
+    {
+        return a.getCreationTime().toString().compareTo(b.getCreationTime().toString());
+    }
 }
