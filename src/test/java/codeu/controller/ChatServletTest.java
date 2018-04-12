@@ -217,6 +217,10 @@ public class ChatServletTest {
 
     chatServlet.doPost(mockRequest, mockResponse);
     
-    // Not sure what to do past here
+    ArgumentCaptor<Message> messageArgumentCaptor = ArgumentCaptor.forClass(Message.class);
+    Mockito.verify(mockMessageStore).addMessage(messageArgumentCaptor.capture());
+    Assert.assertEquals("&#x1f603", messageArgumentCaptor.getValue().getContent());
+
+    Mockito.verify(mockResponse).sendRedirect("/chat/test_conversation");
   }
 }
