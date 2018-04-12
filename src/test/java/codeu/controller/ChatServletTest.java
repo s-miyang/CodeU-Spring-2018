@@ -36,6 +36,8 @@ import org.junit.Test;
 import org.mockito.ArgumentCaptor;
 import org.mockito.Mockito;
 
+import org.mindrot.jbcrypt.*;
+
 public class ChatServletTest {
 
   private ChatServlet chatServlet;
@@ -134,8 +136,8 @@ public class ChatServletTest {
   public void testDoPost_ConversationNotFound() throws IOException, ServletException {
     Mockito.when(mockRequest.getRequestURI()).thenReturn("/chat/test_conversation");
     Mockito.when(mockSession.getAttribute("user")).thenReturn("test_username");
-  
-    User fakeUser = new User(UUID.randomUUID(), "test_username", "password", Instant.now());
+
+    User fakeUser = new User(UUID.randomUUID(), "test_username", BCrypt.hashpw("password", BCrypt.gensalt()), Instant.now());
     Mockito.when(mockUserStore.getUser("test_username")).thenReturn(fakeUser);
 
     Mockito.when(mockConversationStore.getConversationWithTitle("test_conversation"))
@@ -152,7 +154,7 @@ public class ChatServletTest {
     Mockito.when(mockRequest.getRequestURI()).thenReturn("/chat/test_conversation");
     Mockito.when(mockSession.getAttribute("user")).thenReturn("test_username");
 
-    User fakeUser = new User(UUID.randomUUID(), "test_username", "password", Instant.now());
+    User fakeUser = new User(UUID.randomUUID(), "test_username", BCrypt.hashpw("password", BCrypt.gensalt()), Instant.now());
     Mockito.when(mockUserStore.getUser("test_username")).thenReturn(fakeUser);
 
     Conversation fakeConversation =
@@ -176,7 +178,7 @@ public class ChatServletTest {
     Mockito.when(mockRequest.getRequestURI()).thenReturn("/chat/test_conversation");
     Mockito.when(mockSession.getAttribute("user")).thenReturn("test_username");
 
-    User fakeUser = new User(UUID.randomUUID(), "test_username", "password", Instant.now());
+    User fakeUser = new User(UUID.randomUUID(), "test_username", BCrypt.hashpw("password", BCrypt.gensalt()), Instant.now());
     Mockito.when(mockUserStore.getUser("test_username")).thenReturn(fakeUser);
 
     Conversation fakeConversation =
