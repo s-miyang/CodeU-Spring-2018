@@ -143,14 +143,15 @@ public class ChatServlet extends HttpServlet {
 
     // this removes any HTML from the message content
     String cleanedMessageContent = Jsoup.clean(messageContent, Whitelist.none());
-    String emojiedMessage = EmojiParser.parseToHtmlHexadecimal(EmojiParser.parseToUnicode(parsedMessageContent));
+    String emojiedMessage = EmojiParser.parseToUnicode(cleanedMessageContent);
+    emojiedMessage = EmojiParser.parseToHtmlHexadecimal(emojiedMessage);
 
     Message message =
         new Message(
             UUID.randomUUID(),
             conversation.getId(),
             user.getId(),
-            emojiedMessage;
+            emojiedMessage,
             Instant.now());
 
     messageStore.addMessage(message);
