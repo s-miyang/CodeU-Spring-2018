@@ -28,6 +28,7 @@ See User.java for all the methods to call -Michelle
 <%
 String user = (String) request.getAttribute("user");
 String bio = (String) request.getAttribute("bio");
+String pic = request.getAttribute("profile_pic");
 List<Message> messages = (List<Message>) request.getAttribute("messages");
 %>
 
@@ -62,6 +63,8 @@ List<Message> messages = (List<Message>) request.getAttribute("messages");
      <button type="submit">Publish</button>
    </form>
    <% } %>
+   
+   <img src=pic alt=user + "'s profile picture">
 
    <h4>About <%= user %></h4>
    <% System.out.println("\n\n crying: " + UserStore.getInstance().getUser((String) request.getSession().getAttribute("user")).getBio()); %>

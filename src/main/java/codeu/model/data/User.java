@@ -27,7 +27,8 @@ public class User {
 // Added for profile pages. See profile.jsp
   private Instant editTime;
   private String bio;
-  private byte[] pic; // pictures can be stored as byte arrays
+  //private byte[] pic; // pictures can be stored as byte arrays
+  private String pic;
   private String school; // name of their school
   private int gradYear; // year they'll graduate
 
@@ -104,11 +105,17 @@ public class User {
    * The client is going to have to change the picture into
    * an array of bytes first...
    * */
-  public void setPic(byte[] p) {
-	  pic = p;
+//  public void setPic(byte[] p) {
+//	  pic = p;
+//  }
+//
+//  public byte[] getPic() {
+//      return pic;
+//  }
+  public void setPic(String p) {
+      pic = p;
   }
-
-  public byte[] getPic() {
+  public String getPic() {
       return pic;
   }
 

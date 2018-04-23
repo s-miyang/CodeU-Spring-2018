@@ -162,6 +162,7 @@ public class PersistentDataStore {
     userEntity.setProperty("password", user.getPassword());
     userEntity.setProperty("creation_time", user.getCreationTime().toString());
     userEntity.setProperty("about_text", user.getBio());
+    userEntity.setProperty("profile_pic", user.getPic());
     System.out.println("\n\ndis is get bio in persistence: " + user.getBio() + "\n\n");
     datastore.put(userEntity);
   }
