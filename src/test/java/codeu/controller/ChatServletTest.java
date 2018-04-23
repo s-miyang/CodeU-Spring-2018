@@ -212,13 +212,13 @@ public class ChatServletTest {
     Mockito.when(mockConversationStore.getConversationWithTitle("test_conversation"))
         .thenReturn(fakeConversation);
 
-    Mockito.when(mockRequest.getParameter("message")).thenReturn(":japanese_goblin:");
+    Mockito.when(mockRequest.getParameter("message")).thenReturn(":smiley_cat:");
 
     chatServlet.doPost(mockRequest, mockResponse);
 
     ArgumentCaptor<Message> messageArgumentCaptor = ArgumentCaptor.forClass(Message.class);
     Mockito.verify(mockMessageStore).addMessage(messageArgumentCaptor.capture());
-    Assert.assertEquals("&#x1f47a;", messageArgumentCaptor.getValue().getContent());
+    Assert.assertEquals("&#x1f63a;", messageArgumentCaptor.getValue().getContent());
 
     Mockito.verify(mockResponse).sendRedirect("/chat/test_conversation");
   }
