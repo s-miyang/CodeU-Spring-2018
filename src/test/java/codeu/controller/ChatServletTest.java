@@ -213,13 +213,13 @@ public class ChatServletTest {
         .thenReturn(fakeConversation);
 
     Mockito.when(mockRequest.getParameter("message"))
-        .thenReturn("Contains <b>html</b> and <script>JavaScript</script> content.");
+        .thenReturn(":smiley:");
 
     chatServlet.doPost(mockRequest, mockResponse);
     
     ArgumentCaptor<Message> messageArgumentCaptor = ArgumentCaptor.forClass(Message.class);
     Mockito.verify(mockMessageStore).addMessage(messageArgumentCaptor.capture());
-    Assert.assertEquals("&#x1f603", messageArgumentCaptor.getValue().getContent());
+    Assert.assertEquals("&#x1F603;", messageArgumentCaptor.getValue().getContent());
 
     Mockito.verify(mockResponse).sendRedirect("/chat/test_conversation");
   }
