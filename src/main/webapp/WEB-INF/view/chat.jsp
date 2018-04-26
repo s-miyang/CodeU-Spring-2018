@@ -40,15 +40,15 @@ List<Message> messages = (List<Message>) request.getAttribute("messages");
 
   <nav>
     <%-- <a id="navTitle" href="/">Home</a> --%>
-      <% if (request.getSession().getAttribute("user") != null) { %>
+    <%-- <% if (request.getSession().getAttribute("user") != null) { %>
     <a>Hello <%= request.getSession().getAttribute("user") %>!</a>
     <% } else { %>
       <a href="/login">Login</a>
       <a href="/register">Register</a>
-    <% } %>
-    <a href="/conversations">Conversations</a>
-    <a href="/users/<%=request.getSession().getAttribute("user")%>">My Profile</a>
-    <a href="/about.jsp">About</a>
+    <% } %> --%>
+    <a href="/conversations">C O N V E R S A T I O N S</a>
+    <a href="/users/<%=request.getSession().getAttribute("user")%>">M Y &nbsp;&nbsp; P R O F I L E</a>
+    <a href="/about.jsp">A B O U T</a>
   </nav>
 
   <div id="container">
