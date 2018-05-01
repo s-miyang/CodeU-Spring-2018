@@ -143,8 +143,13 @@ public class ChatServlet extends HttpServlet {
 
     String messageContent = request.getParameter("message");
 
+    // making pseudo-HTML color tags into real HTML
+    messageContent = this.parseColorTags(messageContent);
+    
+
+
     // this removes any HTML from the message content
-    String cleanedMessageContent = Jsoup.clean(messageContent, Whitelist.basicWithImages​());
+    String cleanedMessageContent = Jsoup.clean(messageContent, Whitelist.basicWithImages​().addAttributes(":all", "class"));
 
     Message message =
         new Message(
@@ -159,6 +164,65 @@ public class ChatServlet extends HttpServlet {
     // redirect to a GET request
     response.sendRedirect("/chat/" + conversationTitle);
     // response.sendRedirect("/users/" + user.getName());
+  }
+
+  // replace pseudo-HTML color tags with actual HTML that works
+  // ugly, but has to be hardcoded since using hardcoded names
+  String parseColorTags(String messageContent) {
+    String a = messageContent.replace("<green>","<span class=\"green\">");
+    a = a.replace("</green>","</span>");
+    a = a.replace("<blue>","<span class=\"blue\">");
+    a = a.replace("</blue>","</span>");
+    a = a.replace("<yellow>","<span class=\"yellow\">");
+    a = a.replace("</yellow>","</span>");
+    a = a.replace("<orange>","<span class=\"orange\">");
+    a = a.replace("</orange>","</span>");
+    a = a.replace("<pink>","<span class=\"pink\">");
+    a = a.replace("</pink>","</span>");
+    a = a.replace("<black>","<span class=\"black\">");
+    a = a.replace("</black>","</span>");
+    a = a.replace("<white>","<span class=\"white\">");
+    a = a.replace("</white>","</span>");
+    a = a.replace("<red>","<span class=\"red\">");
+    a = a.replace("</red>","</span>");
+    a = a.replace("<purple>","<span class=\"purple\">");
+    a = a.replace("</purple>","</span>");
+    a = a.replace("<violet>","<span class=\"violet\">");
+    a = a.replace("</violet>","</span>");
+    a = a.replace("<teal>","<span class=\"teal\">");
+    a = a.replace("</teal>","</span>");
+    a = a.replace("<turquoise>","<span class=\"turquoise\">");
+    a = a.replace("</turquoise>","</span>");
+    a = a.replace("<tan>","<span class=\"tan\">");
+    a = a.replace("</tan>","</span>");
+    a = a.replace("<plum>","<span class=\"plum\">");
+    a = a.replace("</plum>","</span>");
+    a = a.replace("<maroon>","<span class=\"maroon\">");
+    a = a.replace("</maroon>","</span>");
+    a = a.replace("<lime>","<span class=\"lime\">");
+    a = a.replace("</lime>","</span>");
+    a = a.replace("<lavender>","<span class=\"lavender\">");
+    a = a.replace("</lavender>","</span>");
+    a = a.replace("<indigo>","<span class=\"indigo\">");
+    a = a.replace("</indigo>","</span>");
+    a = a.replace("<grey>","<span class=\"grey\">");
+    a = a.replace("</grey>","</span>");
+    a = a.replace("<gray>","<span class=\"gray\">");
+    a = a.replace("</gray>","</span>");
+    a = a.replace("<gold>","<span class=\"gold\">");
+    a = a.replace("</gold>","</span>");
+    a = a.replace("<cyan>","<span class=\"cyan\">");
+    a = a.replace("</cyan>","</span>");
+    a = a.replace("<crimson>","<span class=\"crimson\">");
+    a = a.replace("</crimson>","</span>");
+    a = a.replace("<brown>","<span class=\"brown\">");
+    a = a.replace("</brown>","</span>");
+    a = a.replace("<azure>","<span class=\"azure\">");
+    a = a.replace("</azure>","</span>");
+    a = a.replace("<aqua>","<span class=\"aqua\">");
+    a = a.replace("</aqua>","</span>");
+
+    return a;
   }
 }
 
