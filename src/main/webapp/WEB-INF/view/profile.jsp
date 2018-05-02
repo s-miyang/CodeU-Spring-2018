@@ -34,27 +34,33 @@ List<Message> messages = (List<Message>) request.getAttribute("messages");
 <!DOCTYPE html>
 <html>
 <head>
- <title>Login</title>
- <link rel="stylesheet" href="/css/main.css">
+  <title>Login</title>
+  <link rel="stylesheet" href="/css/main.css">
+  <link href="https://fonts.googleapis.com/css?family=Lato" rel="stylesheet">
 </head>
 <body>
 
   <nav>
-    <a id="navTitle" href="/">CodeU Chat App</a>
-    <% if(user != null){ %>
+    <%-- <a id="navTitle" href="/">Home</a> --%>
+    <%-- <% if(user != null){ %>
       <a>Hello <%=request.getSession().getAttribute("user")%>!</a>
     <% } else{ %>
       <a href="/login">Login</a>
       <a href="/register">Register</a>
-    <% } %>
-    <a href="/conversations">Conversations</a>
-    <a href="/users/<%=request.getSession().getAttribute("user")%>">My Profile</a>
-    <a href="/about.jsp">About</a>
+    <% } %> --%>
+    <a href="/conversations">C O N V E R S A T I O N S</a>
+    <a href="/users/<%=request.getSession().getAttribute("user")%>">M Y &nbsp;&nbsp; P R O F I L E</a>
+    <a href="/about.jsp">A B O U T</a>
   </nav>
 
  <div id="container">
    <h1><%= user %>'s Profile Page</h1>
    <hr>
+
+   <h4>About <%= user %></h4>
+   <% System.out.println("\n\n crying: " + UserStore.getInstance().getUser((String) request.getSession().getAttribute("user")).getBio()); %>
+   <p> <%= bio %></p>
+
    <% if (UserStore.getInstance().getUser(user).getId().equals(UserStore.getInstance().getUser((String) request.getSession().getAttribute("user")).getId())) { %>
    <form action="/users/<%=user%>" id="about_form" method="POST">
      <h5>Edit your profile:</h5>
@@ -63,13 +69,9 @@ List<Message> messages = (List<Message>) request.getAttribute("messages");
    </form>
    <% } %>
 
-   <h4>About <%= user %></h4>
-   <% System.out.println("\n\n crying: " + UserStore.getInstance().getUser((String) request.getSession().getAttribute("user")).getBio()); %>
-   <p> <%= bio %></p>
-
    <hr>
 
-   <h4><%= user %>'s Sent Messages</h4>
+   <%-- <h4><%= user %>'s Sent Messages</h4>
    <div id="messages">
      <ul>
      <% for (Message message : messages) {
@@ -81,7 +83,7 @@ List<Message> messages = (List<Message>) request.getAttribute("messages");
      </ul>
    </div>
 
-   <hr/>
+   <hr/> --%>
 
    <form action="/logout" method="POST">
      <button type="submit">Log Out</button>

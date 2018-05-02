@@ -18,28 +18,29 @@
 <head>
   <title>CodeU Chat App</title>
   <link rel="stylesheet" href="/css/main.css">
+  <link href="https://fonts.googleapis.com/css?family=Lato" rel="stylesheet">
 </head>
 <body>
 
   <nav>
-    <a id="navTitle" href="/">CodeU Chat App</a>
+    <%-- <a id="navTitle" href="/">Home</a> --%>
     <% if(request.getSession().getAttribute("user") != null){ %>
-      <a>Hello <%= request.getSession().getAttribute("user") %>!</a>
-      <a href="/conversations">Conversations</a>
-      <a href="/users/<%=request.getSession().getAttribute("user")%>">My Profile</a>
+      <%-- <a>Hello <%= request.getSession().getAttribute("user") %>!</a> --%>
+      <a href="/conversations">C O N V E R S A T I O N S</a>
+      <a href="/users/<%=request.getSession().getAttribute("user")%>">M Y &nbsp;&nbsp; P R O F I L E</a>
     <% } else{ %>
-      <a href="/login">Login</a>
-      <a href="/register">Register</a>
+      <a href="/login">L O G I N</a>
+      <a href="/register">R E G I S T E R</a>
     <% } %>
-    <a href="/about.jsp">About</a>
+    <a href="/about.jsp">A B O U T</a>
   </nav>
 
   <div id="container">
     <div
       style="width:75%; margin-left:auto; margin-right:auto; margin-top: 50px;">
 
-      <h1>[Insert Name of Messaging App] User Manual</h1>
-      <p>
+      <h1>Toad<span class="special">Blue</span> User Manual</h1>
+      <%-- <p>
         This is an example chat application designed to be a starting point
         for your CodeU project team work. Here's some stuff to think about:
       </p>
@@ -65,64 +66,59 @@
         homepage and this about page to tell your users more about your team.
         This page should also be used to describe the features and improvements
         you've added.
-      </p>
-      <h1>Our Team</h1>
+      </p> --%>
       <p>
-        Hi there! We're Team ToadBlue.
+        <h2> Hi there! We're Team ToadBlue. </h2>
 
-        <br></br>
+        </br>
         <h3>Meet the Team:</h3>
-        <br></br>
+        </br>
         <b>Vikas Mahajan</b>
-        <br></br>
+        </br>
         Role: Project Advisor
-        <br></br>
+        </br>
         About: Vikas currently works at Google as a Program Manager.
-        <br></br>
+        </br>
         Fun Fact: Vikas drives 150 miles every day in an electric car.
 
         <br></br>
-        <br></br>
 
         <b>Emily Zhu</b>
-        <br></br>
+        </br>
         Role: Programmer
-        <br></br>
+        </br>
         About: Emily is currently a sophomore at UC Berkeley studying computer science.
-        <br></br>
+        </br>
         Fun Fact: Emily used to play competitive chess.
 
         <br></br>
-        <br></br>
 
         <b>Michelle Yang</b>
-        <br></br>
+        </br>
         Role: Programmer
-        <br></br>
+        </br>
         About: Michelle is a sophomore at the University of Washington studying computer science.
-        <br></br>
+        </br>
         Fun Fact: Michelle really likes MacGyver.
 
         <br></br>
-        <br></br>
 
         <b>Adelaide Punt</b>
-        <br></br>
+        </br>
         Role: Programmer
-        <br></br>
+        </br>
         About: Adelaide is a sophomore at Harvey Mudd College majoring in computer science and mathematics.
-        <br></br>
+        </br>
         Fun Fact: Adelaide is a contemporary and ballet dancer.
 
         <br></br>
-        <br></br>
 
         <b>Paolo Takagi-Atilano</b>
-        <br></br>
+        </br>
         Role: Programmer
-        <br></br>
+        </br>
         About: Paolo is a junior at Dartmouth College majoring in computer science.
-        <br></br>
+        </br>
         Fun Fact: Paolo is on the varsity cross-conutry ski team.
       </p>
 

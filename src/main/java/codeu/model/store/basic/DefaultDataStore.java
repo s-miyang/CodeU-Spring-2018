@@ -99,7 +99,7 @@ public class DefaultDataStore {
     List<String> randomUsernames = getRandomUsernames();
     Collections.shuffle(randomUsernames);
 
-// password passed into user is arbitrary --Michelle
+    // password passed into user is arbitrary --Michelle
     for (int i = 0; i < DEFAULT_USER_COUNT; i++) {
       User user = new User(UUID.randomUUID(), randomUsernames.get(i), BCrypt.hashpw("password", BCrypt.gensalt()), Instant.now());
       PersistentStorageAgent.getInstance().writeThrough(user);
