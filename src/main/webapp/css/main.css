@@ -15,28 +15,37 @@
 
 body {
   margin: 0;
-  font-family: sans-serif;
+  font-family: "Lato", sans-serif;
+  background-color: #ffffff;
+  padding-bottom: 3%;
+  font-size: 14px;
+  color: #000000;
   line-height: 1.6;
-  font-size: 18px;
-  line-height: 1.6;
-  color: #444;
-  background-color: #eeeeee;
 }
 
 nav {
-  background-color: #283593;
+  background-color: #FFFFFF;
 }
 
 nav a {
-  color: white;
   display: inline-block;
-  font-size: 24px;
-  margin: 15px;
-  text-decoration: none;
+  font-size: 14px;
+  margin: 25px;
+  /* color: #A9A9A9; */
+  /* text-decoration: underline; */
+}
+
+nav a:active, nav a:hover, nav a:link {
+  display: inline-block;
+  font-size: 14px;
+  margin: 25px;
+  color: #6f94b7;
+  /* text-decoration: underline; */
 }
 
 a {
   text-decoration: none;
+  color: #000000;
 }
 
 input:focus
@@ -79,7 +88,7 @@ label {
 
 #my_chat {
   display: inline-block;
-  background-color: #997788;
+  background-color: #6f94b7;
   color: #ffffff;
   width: 25%;
   border-radius: 5px;
@@ -93,8 +102,8 @@ label {
 
 #other_chat {
   display: inline-block;
-  background-color: #778899;
-  color: #ffffff;
+  background-color: #e2e9f0;
+  color: #5d5d5d;
   width: 25%;
   border-radius: 5px;
   line-height: 1.5;
@@ -106,6 +115,10 @@ label {
 
 h1 {
   color: #757575;
+}
+
+.special {
+  color: #6f94b7;
 }
 
 input {

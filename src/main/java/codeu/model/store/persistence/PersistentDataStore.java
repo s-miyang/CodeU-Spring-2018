@@ -67,15 +67,11 @@ public class PersistentDataStore {
         String userName = (String) entity.getProperty("username");
         String password = (String) entity.getProperty("password");
         String about = (String) entity.getProperty("about_text");
-        // Instant editTime = Instant.parse((String) entity.getProperty("edit_time"));
         Instant creationTime = Instant.parse((String) entity.getProperty("creation_time"));
-        // if (editTime.isAfter(maxInstant)) {
         User user = new User(uuid, userName, password, creationTime);
         user.setBio(about);
         System.out.println("\n\nconfusion @ load: " + userName + ": " + about + "\n\n");
         users.add(user);
-        //   maxInstant = editTime;
-        // }
       } catch (Exception e) {
         // In a production environment, errors should be very rare. Errors which may
         // occur include network errors, Datastore service errors, authorization errors,
