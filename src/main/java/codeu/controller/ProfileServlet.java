@@ -79,7 +79,9 @@ public class ProfileServlet extends HttpServlet {
       throws IOException, ServletException {
 
     String requestUrl = request.getRequestURI();
-    String user = requestUrl.substring("/users/".length());
+    System.out.println("DEBUGGING: requestUrl = " + requestUrl);
+    //String user = requestUrl.substring("/users/".length());
+    String user = requestUrl.substring(7, requestUrl.length());
     request.setAttribute("user", user);
 
     User thisUser = userStore.getUser(user);

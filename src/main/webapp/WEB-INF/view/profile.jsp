@@ -28,7 +28,7 @@ See User.java for all the methods to call -Michelle
 <%
 String user = (String) request.getAttribute("user");
 String bio = (String) request.getAttribute("bio");
-String pic = request.getAttribute("profile_pic");
+String pic = (String) request.getAttribute("profile_pic");
 List<Message> messages = (List<Message>) request.getAttribute("messages");
 %>
 
@@ -56,6 +56,10 @@ List<Message> messages = (List<Message>) request.getAttribute("messages");
  <div id="container">
    <h1><%= user %>'s Profile Page</h1>
    <hr>
+
+   <% Object owner = UserStore.getInstance().getUser(user).getId(); %>
+   <% String curr = (String) request.getSession().getAttribute("user"); %>
+   <% Object loggedIn = UserStore.getInstance().getUser(curr).getId(); %>
    <% if (UserStore.getInstance().getUser(user).getId().equals(UserStore.getInstance().getUser((String) request.getSession().getAttribute("user")).getId())) { %>
    <form action="/users/<%=user%>" id="about_form" method="POST">
      <h5>Edit your profile:</h5>
@@ -63,6 +67,8 @@ List<Message> messages = (List<Message>) request.getAttribute("messages");
      <button type="submit">Publish</button>
    </form>
    <% } %>
+
+   <hr>
    
    <img src=pic alt=user + "'s profile picture">
 

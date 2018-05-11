@@ -48,7 +48,7 @@ public class User {
 
     //added for profile
     this.bio = "Hello! My name is " + this.name + ".";
-    this.pic = null;
+    this.pic = "http://www.readersdigest.ca/wp-content/uploads/2011/01/4-ways-cheer-up-depressed-cat.jpg";
     this.school = "";
     this.gradYear = 0;
     this.editTime = creation;
