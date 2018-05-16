@@ -65,7 +65,8 @@ List<Message> messages = (List<Message>) request.getAttribute("messages");
    <form action="/users/<%=user%>" id="about_form" method="POST">
      <h5>Edit your profile:</h5>
      <input type="text" autocomplete="off" name="about_text" id="about_text"></input>
-     <button type="submit">Publish</button>
+     </br>
+     <button type="submit">P U B L I S H</button>
    </form>
    <% } %>
 
@@ -86,7 +87,7 @@ List<Message> messages = (List<Message>) request.getAttribute("messages");
    <hr/> --%>
 
    <form action="/logout" method="POST">
-     <button type="submit">Log Out</button>
+     <button class="logout" type="submit">L O G &nbsp;&nbsp; O U T</button>
    </form>
 
  </div>

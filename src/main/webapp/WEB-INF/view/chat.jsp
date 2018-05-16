@@ -78,15 +78,17 @@ List<Message> messages = (List<Message>) request.getAttribute("messages");
 
     <hr/>
 
-    <% if (request.getSession().getAttribute("user") != null) { %>
-    <form action="/chat/<%= conversation.getTitle() %>" method="POST">
-        <input type="text" required="required" name="message">
-        <br/>
-        <button type="submit">Send</button>
-    </form>
-    <% } else { %>
-      <p><a href="/login">Login</a> to send a message.</p>
-    <% } %>
+    <div class="right">
+      <% if (request.getSession().getAttribute("user") != null) { %>
+      <form action="/chat/<%= conversation.getTitle() %>" method="POST">
+          <input type="text" required="required" name="message">
+          <br/>
+          <button type="submit">S E N D</button>
+      </form>
+      <% } else { %>
+        <p><a href="/login">Login</a> to send a message.</p>
+      <% } %>
+    </div>
 
     <hr/>
 

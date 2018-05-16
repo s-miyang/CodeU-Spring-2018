@@ -52,7 +52,7 @@
           <input type="text" required="required" name="conversationTitle">
         </div>
 
-        <button type="submit">Create</button>
+        <button type="submit">C R E A T E</button>
       </form>
       </br>
       <hr/>
