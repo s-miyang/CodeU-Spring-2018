@@ -89,6 +89,7 @@ public class ProfileServlet extends HttpServlet {
       response.sendRedirect("/users");
       return;
     }
+    
     String bio = thisUser.getBio();
     request.setAttribute("bio", bio);
     
@@ -122,11 +123,16 @@ public class ProfileServlet extends HttpServlet {
       return;
     }
     User user = userStore.getUser(username);
-    user.setBio((String) request.getParameter("about_text"));
     
-    //>>???
-    user.setPic((String) request.getParameter("pic"));
-    //>>???
+    
+    // changed since might not contain all parameters?
+    if (request.getParameter("about_text") != null) {
+        user.setBio((String) request.getParameter("about_text"));
+    }
+    if (request.getParameter("pic") != null) {
+        user.setPic((String) request.getParameter("pic"));
+    }
+    
     System.out.println("please work. thanks. " + (String)request.getParameter("pic") );
     System.out.println("\n\nlmao someone plsssss help: " + (String) request.getParameter("about_text") + "\n\n");
     userStore.editUser(user);
