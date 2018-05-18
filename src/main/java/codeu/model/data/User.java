@@ -26,7 +26,7 @@ public class User {
 
 // Added for profile pages. See profile.jsp
   private String bio;
-  private byte[] pic; // pictures can be stored as byte arrays
+  private String pic;
   private String school; // name of their school
   private int gradYear; // year they'll graduate
 
@@ -46,8 +46,8 @@ public class User {
 
     //added for profile
     this.bio = "Hello! My name is " + this.name + ".";
-    this.pic = null;
-    this.school = "";
+    this.pic = "http://www.readersdigest.ca/wp-content/uploads/2011/01/4-ways-cheer-up-depressed-cat.jpg";
+    this.school = "<You're a legacy user! You made an account before we could take down your info :) Go ahead and change the school/grad year!>";
     this.gradYear = 0;
   }
 
@@ -92,19 +92,15 @@ public class User {
   public String getBio() {
 	  return bio;
   }
-
-  /*
-   * The client is going to have to change the picture into
-   * an array of bytes first...
-   * */
-  public void setPic(byte[] p) {
-	  pic = p;
+  
+  public void setPic(String p) {
+      pic = p;
   }
-
-  public byte[] getPic() {
+  public String getPic() {
+      System.out.println("User.java: getPic() returned " + pic);
       return pic;
   }
-
+  
   public void setSchool(String s) {
       school = s;
   }
