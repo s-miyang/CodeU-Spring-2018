@@ -67,21 +67,40 @@ List<Message> messages = (List<Message>) request.getAttribute("messages");
   		<p> Graduation Year: <%= UserStore.getInstance().getUser(user).getGradYear() %> </p>
 
   		<% if (UserStore.getInstance().getUser(user).getId().equals(UserStore.getInstance().getUser((String) request.getSession().getAttribute("user")).getId())) { %>
+  			<hr>
   			<form action="/users/<%=user%>" id="about_form" method="POST">
      		<h5>Edit your profile:</h5>
      		<input type="text" autocomplete="off" name="about_text" id="about_text"></input>
      		<button type="submit">Publish</button>
    			</form>
    			
-   			<hr>
-   			<form action="/users/<%=user%> id="What" method="POST">
+   			<form action="/users/<%=user%>" id="What" method="POST">
    			<h5>Change profile picture: link to a picture online</h5>
    			<input type="text" autocomplete="off" name="pic" id="pic"></input>
    			<button type="submit">Change</button>
    			</form>
+   			
+   			<form action="/users/<%=user%>" id="who knows" method="POST">
+   			<h5>Change graduation year</h5>
+   			<select class="text-line" name="grad_year" id="grad_year">
+              <option value="2019">2019</option>
+              <option value="2020">2020</option>
+              <option value="2021">2021</option>
+              <option value="2022">2022</option>
+         	</select>
+         	<button type="submit">Change</button>
+         	</form>
+         	
+         	<form action="/users/<%=user%>" id="idk" method="POST">
+         	<h5>Update your school</h5>
+         	<input type="text" autocomplete="off" name="school" id="school"></input>
+         	<button type="submit">Update</button>
+         	</form>
+   			
    		<% } %>
    <% } else { %>
-   		<p>User is null. Sorry something went wrong :( Log out and try again please! If something's still wrong, comment! </p>
+   		<p>User is null. Sorry something went wrong :( </p>
+   		<p>Please log out and try again! (It should work!) If something's still wrong, comment! </p>
    <% } %>
 
    <hr>

@@ -47,7 +47,7 @@ public class User {
     //added for profile
     this.bio = "Hello! My name is " + this.name + ".";
     this.pic = "http://www.readersdigest.ca/wp-content/uploads/2011/01/4-ways-cheer-up-depressed-cat.jpg";
-    this.school = "";
+    this.school = "<You're a legacy user! You made an account before we could take down your info :) Go ahead and change the school/grad year!>";
     this.gradYear = 0;
   }
 

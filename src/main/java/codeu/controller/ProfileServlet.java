@@ -100,6 +100,12 @@ public class ProfileServlet extends HttpServlet {
     }
     request.setAttribute("pic", pic);
     //>>???
+    
+    String school = thisUser.getSchool();
+    request.setAttribute("school", school);
+    
+    int gradYear = thisUser.getGradYear();
+    request.setAttribute("grad_year", gradYear);
 
     List<Message> messages = messageStore.retMessages();
     List<Message> myMessages = new ArrayList<>();
