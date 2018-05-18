@@ -57,7 +57,7 @@ List<Message> messages = (List<Message>) request.getAttribute("messages");
    <h1><%= user %>'s Profile Page</h1>
    <hr>
    
-   <img src=<%= UserStore.getInstance().getUser(user).getPic() %> alt=<%= user %> + "'s profile picture">
+   <img src=<%= UserStore.getInstance().getUser(user).getPic() %> alt=<%= user %> + "'s profile picture" style="float:left;width:100px;">
 
    <h4>About <%= user %></h4>
    <% System.out.println(UserStore.getInstance()); %>
@@ -72,7 +72,7 @@ List<Message> messages = (List<Message>) request.getAttribute("messages");
    			</form>
    			
    			<hr>
-   			<form id="pic_form">
+   			<form action="/users/<%=user%> id="What" method="POST">
    			<h5>Change profile picture: link to a picture online</h5>
    			<input type="text" autocomplete="off" name="pic" id="pic"></input>
    			<button type="submit">Change</button>

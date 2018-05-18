@@ -91,6 +91,14 @@ public class ProfileServlet extends HttpServlet {
     }
     String bio = thisUser.getBio();
     request.setAttribute("bio", bio);
+    
+    //*>>???
+    String pic = thisUser.getPic();
+    if (pic == null) {
+        System.out.println("ProfileServlet issue pic is null");
+    }
+    request.setAttribute("pic", pic);
+    //>>???
 
     List<Message> messages = messageStore.retMessages();
     List<Message> myMessages = new ArrayList<>();
@@ -115,6 +123,11 @@ public class ProfileServlet extends HttpServlet {
     }
     User user = userStore.getUser(username);
     user.setBio((String) request.getParameter("about_text"));
+    
+    //>>???
+    user.setPic((String) request.getParameter("pic"));
+    //>>???
+    System.out.println("please work. thanks. " + (String)request.getParameter("pic") );
     System.out.println("\n\nlmao someone plsssss help: " + (String) request.getParameter("about_text") + "\n\n");
     userStore.editUser(user);
 		response.sendRedirect("/users/" + user.getName());
