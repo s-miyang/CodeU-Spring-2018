@@ -60,10 +60,12 @@ List<Message> messages = (List<Message>) request.getAttribute("messages");
    <img src=<%= UserStore.getInstance().getUser(user).getPic() %> alt=<%= user %> + "'s profile picture" style="float:left;width:100px;">
 
    <h4>About <%= user %></h4>
-   <% System.out.println(UserStore.getInstance()); %>
-   <% System.out.println(request.getSession()); %>
    <% if (request.getSession().getAttribute("user") != null) { %>
   		<p> <%= bio %></p>
+  		
+  		<p> Studies at <%= UserStore.getInstance().getUser(user).getSchool() %> </p>
+  		<p> Graduation Year: <%= UserStore.getInstance().getUser(user).getGradYear() %> </p>
+
   		<% if (UserStore.getInstance().getUser(user).getId().equals(UserStore.getInstance().getUser((String) request.getSession().getAttribute("user")).getId())) { %>
   			<form action="/users/<%=user%>" id="about_form" method="POST">
      		<h5>Edit your profile:</h5>
@@ -79,7 +81,7 @@ List<Message> messages = (List<Message>) request.getAttribute("messages");
    			</form>
    		<% } %>
    <% } else { %>
-   		<p>User is null. Sorry :(</p>
+   		<p>User is null. Sorry something went wrong :( Log out and try again please! If something's still wrong, comment! </p>
    <% } %>
 
    <hr>

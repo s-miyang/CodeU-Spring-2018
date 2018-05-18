@@ -55,6 +55,11 @@ public class RegisterServlet extends HttpServlet {
 		  	throws IOException, ServletException {
 	  String username = request.getParameter("username");
 	  String password = request.getParameter("password");
+	  
+	  //added 5/18/18 -Michelle
+	  String school = request.getParameter("school");
+	  String gradYear = request.getParameter("grad_year");
+	  
 	  String passwordHash = BCrypt.hashpw(password, BCrypt.gensalt());
 
 	  if (!username.matches("[\\w*\\s*]*")) {
@@ -71,6 +76,11 @@ public class RegisterServlet extends HttpServlet {
 
 	  User user = new User(UUID.randomUUID(), username, passwordHash, Instant.now());
 	  userStore.addUser(user);
+	  
+	  // added 5/18/18 -Michelle
+	  user.setGradYear(Integer.parseInt(gradYear));
+	  user.setSchool(school);
+	  
 	  response.sendRedirect("/login");
 		response.sendRedirect("/users/" + user.getName());
   }
