@@ -138,6 +138,12 @@ public class ProfileServlet extends HttpServlet {
     if (request.getParameter("pic") != null) {
         user.setPic((String) request.getParameter("pic"));
     }
+    if (request.getParameter("school") != null) {
+        user.setSchool((String) request.getParameter("school"));
+    }
+    if (request.getParameter("grad_year") != null) {
+        user.setGradYear(Integer.parseInt(request.getParameter("grad_year")));
+    }
     
     System.out.println("please work. thanks. " + (String)request.getParameter("pic") );
     System.out.println("\n\nlmao someone plsssss help: " + (String) request.getParameter("about_text") + "\n\n");
