@@ -89,8 +89,23 @@ public class ProfileServlet extends HttpServlet {
       response.sendRedirect("/users");
       return;
     }
+    
     String bio = thisUser.getBio();
     request.setAttribute("bio", bio);
+    
+    //*>>???
+    String pic = thisUser.getPic();
+    if (pic == null) {
+        System.out.println("ProfileServlet issue pic is null");
+    }
+    request.setAttribute("pic", pic);
+    //>>???
+    
+    String school = thisUser.getSchool();
+    request.setAttribute("school", school);
+    
+    int gradYear = thisUser.getGradYear();
+    request.setAttribute("grad_year", gradYear);
 
     List<Message> messages = messageStore.retMessages();
     List<Message> myMessages = new ArrayList<>();
@@ -114,7 +129,23 @@ public class ProfileServlet extends HttpServlet {
       return;
     }
     User user = userStore.getUser(username);
-    user.setBio((String) request.getParameter("about_text"));
+    
+    
+    // changed since might not contain all parameters?
+    if (request.getParameter("about_text") != null) {
+        user.setBio((String) request.getParameter("about_text"));
+    }
+    if (request.getParameter("pic") != null) {
+        user.setPic((String) request.getParameter("pic"));
+    }
+    if (request.getParameter("school") != null) {
+        user.setSchool((String) request.getParameter("school"));
+    }
+    if (request.getParameter("grad_year") != null) {
+        user.setGradYear(Integer.parseInt(request.getParameter("grad_year")));
+    }
+    
+    System.out.println("please work. thanks. " + (String)request.getParameter("pic") );
     System.out.println("\n\nlmao someone plsssss help: " + (String) request.getParameter("about_text") + "\n\n");
     userStore.editUser(user);
 		response.sendRedirect("/users/" + user.getName());

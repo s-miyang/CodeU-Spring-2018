@@ -46,11 +46,11 @@
            <br/>
            <label for="grad_year">G R A D U A T I O N &nbsp;&nbsp; Y E A R</label>
            <br><br/>
-           <select class="text-line" required="required" name="grad_year">
-              <option value="fresh">2019</option>
-              <option value="soph">2020</option>
-              <option value="jr">2021</option>
-              <option value="sr">2022</option>
+           <select class="text-line" required="required" name="grad_year" id="grad_year">
+              <option value="2019">2019</option>
+              <option value="2020">2020</option>
+              <option value="2021">2021</option>
+              <option value="2022">2022</option>
           </select>
            <br/><br/><br/>
            <button type="submit">S I G N &nbsp;&nbsp; U P</button>

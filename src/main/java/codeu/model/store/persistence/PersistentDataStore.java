@@ -66,11 +66,14 @@ public class PersistentDataStore {
         UUID uuid = UUID.fromString((String) entity.getProperty("uuid"));
         String userName = (String) entity.getProperty("username");
         String password = (String) entity.getProperty("password");
-        String about = (String) entity.getProperty("about_text");
+        //String about = (String) entity.getProperty("about_text");
         Instant creationTime = Instant.parse((String) entity.getProperty("creation_time"));
         User user = new User(uuid, userName, password, creationTime);
-        user.setBio(about);
-        System.out.println("\n\nconfusion @ load: " + userName + ": " + about + "\n\n");
+        //String picture = (String) entity.getProperty("pic"); // Haha idk what I was doing here!!! -Michelle
+        //user.setBio(about);
+        //user.setPic(picture);
+        //System.out.println("picture link is currently " + picture + " in PersistentDataStore");
+        //System.out.println("\n\nconfusion @ load: " + userName + ": " + about + "\n\n");
         users.add(user);
       } catch (Exception e) {
         // In a production environment, errors should be very rare. Errors which may
@@ -156,6 +159,9 @@ public class PersistentDataStore {
     userEntity.setProperty("uuid", user.getId().toString());
     userEntity.setProperty("username", user.getName());
     userEntity.setProperty("password", user.getPassword());
+    userEntity.setProperty("pic", user.getPic());
+    userEntity.setProperty("school", user.getSchool());
+    userEntity.setProperty("grad_year", user.getGradYear());
     userEntity.setProperty("creation_time", user.getCreationTime().toString());
     userEntity.setProperty("about_text", user.getBio());
     System.out.println("\n\ndis is get bio in persistence: " + user.getBio() + "\n\n");
