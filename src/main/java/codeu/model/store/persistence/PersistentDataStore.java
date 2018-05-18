@@ -67,9 +67,12 @@ public class PersistentDataStore {
         String userName = (String) entity.getProperty("username");
         String password = (String) entity.getProperty("password");
         String about = (String) entity.getProperty("about_text");
+        String picture = (String) entity.getProperty("pic");
         Instant creationTime = Instant.parse((String) entity.getProperty("creation_time"));
         User user = new User(uuid, userName, password, creationTime);
         user.setBio(about);
+        user.setPic(picture);
+        System.out.println("picture link is currently " + picture + " in PersistentDataStore");
         System.out.println("\n\nconfusion @ load: " + userName + ": " + about + "\n\n");
         users.add(user);
       } catch (Exception e) {

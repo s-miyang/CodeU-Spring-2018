@@ -56,20 +56,34 @@ List<Message> messages = (List<Message>) request.getAttribute("messages");
  <div id="container">
    <h1><%= user %>'s Profile Page</h1>
    <hr>
+   
+   <img src=<%= UserStore.getInstance().getUser(user).getPic() %> alt=<%= user %> + "'s profile picture">
 
    <h4>About <%= user %></h4>
-   <% System.out.println("\n\n crying: " + UserStore.getInstance().getUser((String) request.getSession().getAttribute("user")).getBio()); %>
-   <p> <%= bio %></p>
-
-   <% if (UserStore.getInstance().getUser(user).getId().equals(UserStore.getInstance().getUser((String) request.getSession().getAttribute("user")).getId())) { %>
-   <form action="/users/<%=user%>" id="about_form" method="POST">
-     <h5>Edit your profile:</h5>
-     <input type="text" autocomplete="off" name="about_text" id="about_text"></input>
-     <button type="submit">Publish</button>
-   </form>
+   <% System.out.println(UserStore.getInstance()); %>
+   <% System.out.println(request.getSession()); %>
+   <% if (request.getSession().getAttribute("user") != null) { %>
+  		<p> <%= bio %></p>
+  		<% if (UserStore.getInstance().getUser(user).getId().equals(UserStore.getInstance().getUser((String) request.getSession().getAttribute("user")).getId())) { %>
+  			<form action="/users/<%=user%>" id="about_form" method="POST">
+     		<h5>Edit your profile:</h5>
+     		<input type="text" autocomplete="off" name="about_text" id="about_text"></input>
+     		<button type="submit">Publish</button>
+   			</form>
+   			
+   			<hr>
+   			<form id="pic_form">
+   			<h5>Change profile picture: link to a picture online</h5>
+   			<input type="text" autocomplete="off" name="pic" id="pic"></input>
+   			<button type="submit">Change</button>
+   			</form>
+   		<% } %>
+   <% } else { %>
+   		<p>User is null. Sorry :(</p>
    <% } %>
 
    <hr>
+   
 
    <%-- <h4><%= user %>'s Sent Messages</h4>
    <div id="messages">
