@@ -1,0 +1,46 @@
+1. Introduction to Psychology HM HSA 
+2. Analysis and Abstract
+3. Kinesthisiology 
+4. Advanced Comp Bio
+5. CS81
+
+Total: 18
+
+Waiting on:
+Hip Hop, Ballet, Dyson, Number Theory/Cryptography
+
+
+5×103 cells/well of 96 well
+2×105 cells/well for 6 well
+
+Aslanidis, Charalampos, and Pieter J.de Jong. “Ligation-Independent Cloning of PCR Products (LIC-PCR).” Nucleic Acids Research, vol. 18, no. 20, 20 Sept. 1990, pp. 6069–6074.
+
+public void testDoPost_Emoji() throws IOException, ServletException {
++    Mockito.when(mockRequest.getRequestURI()).thenReturn("/chat/test_conversation");
++    Mockito.when(mockSession.getAttribute("user")).thenReturn("test_username");
++
++    User fakeUser = new User(UUID.randomUUID(), "test_username", "password", Instant.now());
++    Mockito.when(mockUserStore.getUser("test_username")).thenReturn(fakeUser);
++
++    Conversation fakeConversation =
++        new Conversation(UUID.randomUUID(), UUID.randomUUID(), "test_conversation", Instant.now());
++    Mockito.when(mockConversationStore.getConversationWithTitle("test_conversation"))
++        .thenReturn(fakeConversation);
++
++    Mockito.when(mockRequest.getParameter("message")).thenReturn(":japanese_goblin:");
++
++    chatServlet.doPost(mockRequest, mockResponse);
++
++    ArgumentCaptor<Message> messageArgumentCaptor = ArgumentCaptor.forClass(Message.class);
++    Mockito.verify(mockMessageStore).addMessage(messageArgumentCaptor.capture());
++    Assert.assertEquals("&#x1f47a;", messageArgumentCaptor.getValue().getContent());
++
++    Mockito.verify(mockResponse).sendRedirect("/chat/test_conversation");
++  }
+
+m7rkkh2
+
+Order 49352
+Tracking 739707087656
+
+By Wednesad
