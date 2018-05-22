@@ -16,6 +16,7 @@ package codeu.model.store.basic;
 
 import codeu.model.data.Message;
 import codeu.model.store.persistence.PersistentStorageAgent;
+import codeu.model.store.persistence.PersistentDataStoreException;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.UUID;
@@ -105,5 +106,9 @@ public class MessageStore {
   /** Sets the List of Messages stored by this MessageStore. */
   public void setMessages(List<Message> messages) {
     this.messages = messages;
+  }
+
+  public List<Message> retMessages() {
+    return messages;
   }
 }

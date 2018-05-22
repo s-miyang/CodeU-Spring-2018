@@ -104,6 +104,11 @@ public class UserStore {
     persistentStorageAgent.writeThrough(user);
   }
 
+  /** Edits a user already in the current set of users known to the application. */
+  public void editUser(User user) {
+    persistentStorageAgent.writeThrough(user);
+  }
+
   /** Return true if the given username is known to the application. */
   public boolean isUserRegistered(String username) {
     for (User user : users) {
