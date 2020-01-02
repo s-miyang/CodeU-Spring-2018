@@ -58,6 +58,7 @@ label {
   width: 100px;
 }
 
+
 #messages {
   background-color: white;
   height: 500px;
@@ -98,6 +99,7 @@ label {
   padding-bottom: 1%;
 }
 
+
 #other_chat {
   display: inline-block;
   background-color: #e2e9f0;
@@ -125,4 +127,83 @@ input {
 
 button {
   font-size: 18px;
+}
+
+.green {
+  color: green;
+}
+.blue {
+   color: blue;
+}
+.yellow {
+   color: yellow;
+}
+.orange {
+  color: orange;
+}
+.pink {
+   color: pink;
+}
+.black {
+  color: black;
+}
+.white {
+  color: white;
+}
+.red {
+  color: red;
+}
+.purple {
+  color: purple;
+}
+.violet {
+  color: violet;
+}
+.teal {
+  color: teal;
+}
+.turquoise{
+  color: turquoise;
+}
+.tan {
+  color: tan;
+}
+.plum {
+  color: plum;
+}
+.maroon {
+  color: maroon;
+}
+.lime {
+  color: lime;
+}
+.lavender {
+  color: lavender;
+}
+.indigo {
+  color: indigo;
+}
+.grey {
+  color: grey;
+}
+.gray {
+  color: gray;
+}
+.gold {
+  color: gold;
+}
+.cyan {
+  color: cyan;
+}
+.crimson {
+  color: crimson;
+}
+.brown {
+  color: brown;
+}
+.azure {
+  color: azure;
+}
+.aqua {
+  color: aqua;
 }
